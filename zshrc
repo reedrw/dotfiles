@@ -5,8 +5,6 @@
 #(_)___/____/_/ /_/_/   \___/
 #
 
-HOME=/home/reed
-
 [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && startx
 
 EDITOR=/usr/bin/vim
@@ -15,6 +13,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="essembeh"
 
 SCRIPTS="$HOME/scripts"
+[ $USER = "root" ] && SCRIPTS=/home/reed/scripts
 
 BASE16_SHELL=$HOME/.config/base16-shell/
 plugins=(git fast-syntax-highlighting zsh-autosuggestions)
@@ -24,7 +23,7 @@ source $SCRIPTS/transfer.sh
 source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Aliases
-#{{{
+# {{{
 +x(){ chmod +x $1 }
 alias aringa="$SCRIPTS/aringa.sh"
 alias c="$SCRIPTS/clipboard.sh"
@@ -45,7 +44,5 @@ alias v="vim"
 alias x="exit"
 #}}}
 
-
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 [ -f $HOME/.cache/16script/lastuse ] && $HOME/.config/base16-shell/scripts/"$(cat $HOME/.cache/16script/lastuse).sh"
