@@ -8,7 +8,7 @@
 
 # Colors and Customization{{{
 exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id ~/scripts/16script/16script.sh "$(cat ~/.cache/16script/lastuse)" ~/scripts/16script/16scriptpart2.sh
+exec --no-startup-id ~/scripts/16script/16script.sh
 
 set_from_resource $base00 color0	#000000
 set_from_resource $base01 color18	#000000
@@ -187,4 +187,5 @@ exec --no-startup-id dunst
 exec --no-startup-id mpd
 exec --no-startup-id mousetrap -t 7
 exec --no-startup-id nm-applet
+exec --no-startup-id feh --bg-fill ~/.cache/16script/background.jpg
 #}}}
