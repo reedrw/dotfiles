@@ -45,3 +45,7 @@ alias x="exit"
 
 
 [ -f $HOME/.cache/16script/lastuse ] && $HOME/.config/base16-shell/scripts/"$(cat $HOME/.cache/16script/lastuse).sh"
+
+eval $(thefuck --alias f)
+
+eval $(thefuck --alias)

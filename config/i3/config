@@ -48,16 +48,10 @@ set $terminal termite
 #}}}
 
 # Window Movement (excluding workspaces){{{
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# start a terminal
 bindsym $mod+Return exec $terminal
-
-# kill focused window
 bindsym $mod+Shift+q kill
 
-# change focus
+# focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
@@ -67,45 +61,39 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# movement
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# splitting
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+# fullscreen
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+# container layout
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# floating
+floating_modifier $mod
 bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+# parent/child focus
 bindsym $mod+a focus parent
-
-# focus the child container
 bindsym $mod+d focus child
 
-# Resizing
+# resizing
 bindsym $sup+Left resize shrink width 5 px or 5 ppt
 bindsym $sup+Down resize grow height 5 px or 5 ppt
 bindsym $sup+Up resize shrink height 5 px or 5 ppt
@@ -118,8 +106,8 @@ bindsym $sup+Shift+Right resize grow width 1 px or 1 ppt
 #}}}
 
 # Gaps{{{
-gaps inner 25
-gaps outer 0
+gaps inner 20
+gaps outer 10
 
 bindsym $mod+minus		 gaps inner all minus 5
 bindsym $mod+plus		 gaps inner all plus 5
@@ -130,6 +118,7 @@ bindsym $mod+Shift+plus	 gaps outer all plus 5
 
 # Workspaces (including window movement){{{
 
+# workspaces
 set $workspace1 "1"
 set $workspace2 "2"
 set $workspace3 "3"
@@ -142,7 +131,7 @@ set $workspace9 "9"
 set $workspace10 "10"
 
 
-# move focused container to workspace
+# movement
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
@@ -154,7 +143,7 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# switch to workspace
+# active workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3

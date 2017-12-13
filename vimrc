@@ -17,11 +17,13 @@ set mouse=a
 set tabstop=4
 set noshowmode
 set ttimeoutlen=50
+set updatetime=40
 set foldmethod=marker
-set list lcs=tab:\|\ "
+set list lcs=tab:\¦\ "
 let g:livepreview_previewer = 'zathura'
 let g:airline_powerline_fonts = 1
 autocmd BufNewFile,BufRead *.tex :set spell
 autocmd BufNewFile,BufRead *.md :set spell
+command W w !sudo tee % > /dev/null
 map q :q<CR>
 map <Space> za
