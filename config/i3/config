@@ -36,9 +36,9 @@ client.urgent           $base01 $base01 $base05 $base00
 new_window pixel 2
 new_float pixel 2
 
-font pango:profont 12
+font pango:scientifica 12
 for_window [class="Termite"] border normal 0
-for_window [class=".*"] title_format "<span font='profont 8'> > %title</span>"
+for_window [class=".*"] title_format "<span font='scientifica 8'> > %title</span>"
 #}}}
 
 # Variables{{{

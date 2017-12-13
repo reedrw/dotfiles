@@ -22,8 +22,7 @@ source $ZSH/oh-my-zsh.sh
 source $SCRIPTS/transfer.sh
 source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Aliases
-# {{{
+# Aliases{{{
 +x(){ chmod +x $1 }
 alias aringa="$SCRIPTS/aringa.sh"
 alias c="$SCRIPTS/clipboard.sh"

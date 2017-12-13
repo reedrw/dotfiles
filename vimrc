@@ -20,6 +20,7 @@ set ttimeoutlen=50
 set foldmethod=marker
 set list lcs=tab:\|\ "
 let g:livepreview_previewer = 'zathura'
+let g:airline_powerline_fonts = 1
 autocmd BufNewFile,BufRead *.tex :set spell
 autocmd BufNewFile,BufRead *.md :set spell
 map q :q<CR>
