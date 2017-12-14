@@ -8,7 +8,7 @@
 
 # Colors and Customization{{{
 exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id ~/scripts/16script/16script.sh
+exec --no-startup-id ~/scripts/16script/16script.sh -l
 
 set_from_resource $base00 color0	#000000
 set_from_resource $base01 color18	#000000

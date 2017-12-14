@@ -1,3 +1,4 @@
+# vim:filetype=sh
 #               __
 #   ____  _____/ /_  __________
 #  /_  / / ___/ __ \/ ___/ ___/
@@ -6,8 +7,6 @@
 #
 
 [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && startx
-
-EDITOR=/usr/bin/vim
 
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="essembeh"
@@ -42,7 +41,6 @@ alias sep="bg && disown && exit"
 alias v="vim"
 alias x="exit"
 #}}}
-
 
 [ -f $HOME/.cache/16script/lastuse ] && $HOME/.config/base16-shell/scripts/"$(cat $HOME/.cache/16script/lastuse).sh"
 
