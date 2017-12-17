@@ -33,9 +33,6 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = {$xrdb:color1}
 
-border-size = 0
-border-color = #00000000
-
 padding-left = 1
 padding-right = 1
 
@@ -48,12 +45,13 @@ font-2 = Wuncon Siji:pixelsize=11;1
 
 modules-left = i3 mpd
 modules-center = date
-modules-right = battery lnbar
+modules-right = wlan battery lnbar
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 ;}}}
 
+;{{{ example modules
 ;{{{ xwindow
 [module/xwindow]
 type = internal/xwindow
@@ -114,6 +112,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = 
 label-focused-background = ${colors.background}
+label-focused-foreground = ${xrdb:color2}
 label-focused-underline = ${colors.background}
 label-focused-padding = 0
 
@@ -128,7 +127,7 @@ label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = 
+label-urgent = 
 label-urgent-foreground = ${xrdb:color1}
 label-urgent-background = ${colors.background}
 label-urgent-padding = 0
@@ -193,7 +192,7 @@ format-underline = ${xrdb:color1}
 label = %percentage%%
 ;}}}
 
-;{{{ memory
+ ;{{{ memory
 [module/memory]
 type = internal/memory
 interval = 2
@@ -206,18 +205,16 @@ label = %percentage_used%%
 ;{{{ wlan
 [module/wlan]
 type = internal/network
-interface = enp0s25
+interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = ${xrdb:color5}
 ;format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
+format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
+label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 
@@ -225,26 +222,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-;}}}
-
-;{{{ eth
-[module/eth]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
-
-format-connected-underline = ${xrdb:color2}
-;format-connected-underline = ${xrdb:color10}
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = ${xrdb:color5}
 ;}}}
 
 ;{{{ date
@@ -253,18 +231,11 @@ type = internal/date
 interval = 1
 
 date = " %a, %b %d, %Y"
-;date-alt = " %a, %b %d, %Y at %I:%M%p"
-;date-alt = " %Y-%m-%d"
-
-;time = " at %I:%M%p"
-;time-alt = %H:%M:%S
-;time-alt = %H:%M:%S
 time = " %a %I:%M%p"
 
 format-prefix = 
 format-prefix-foreground = ${xrdb:color10}
 format-underline = ${colors.background}
-;format-underline = #0a6cf5
 
 label =  %time%
 ;}}}
@@ -386,6 +357,8 @@ menu-2-1-exec = menu-open-0
 type = custom/text
 content = " "
 click-left = polybar notiftray
+;}}}
+
 ;}}}
 
 ;{{{ bar/notiftray

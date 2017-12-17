@@ -7,7 +7,6 @@
 #                                  /____/
 
 # Colors and Customization{{{
-exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id ~/scripts/16script/16script.sh -l
 
 set_from_resource $base00 color0	#000000
@@ -117,8 +116,6 @@ bindsym $mod+Shift+plus	 gaps outer all plus 5
 #}}}
 
 # Workspaces (including window movement){{{
-
-# workspaces
 set $workspace1 "1"
 set $workspace2 "2"
 set $workspace3 "3"
@@ -182,10 +179,10 @@ bindsym XF86AudioStop exec --no-startup-id mpc clear && /home/reed/scripts/killm
 # Autostart{{{
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id compton
-exec --no-startup-id polybar example
 exec --no-startup-id dunst
 exec --no-startup-id mpd
 exec --no-startup-id mousetrap -t 7
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-fill ~/.cache/16script/background.jpg
+exec --no-startup-id ~/.config/polybar/launch.sh
 #}}}
