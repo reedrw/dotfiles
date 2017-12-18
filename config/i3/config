@@ -7,7 +7,7 @@
 #                                  /____/
 
 # Colors and Customization{{{
-exec --no-startup-id ~/scripts/16script/16script.sh -l
+exec --no-startup-id ~/scripts/16script/16script.sh -l; polybar example
 
 set_from_resource $base00 color0	#000000
 set_from_resource $base01 color18	#000000
@@ -184,5 +184,4 @@ exec --no-startup-id mpd
 exec --no-startup-id mousetrap -t 7
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-fill ~/.cache/16script/background.jpg
-exec --no-startup-id ~/.config/polybar/launch.sh
 #}}}
