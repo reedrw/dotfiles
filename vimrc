@@ -2,7 +2,7 @@
 "   _   __(_)___ ___  __________
 "  | | / / / __ `__ \/ ___/ ___/
 " _| |/ / / / / / / / /  / /__
-"(_)___/_/_/ /_/ /_/_/   \___/
+"()___/_/_/ /_/ /_/_/   \___/
 
 execute pathogen#infect()
 let base16colorspace=256
@@ -13,6 +13,7 @@ syntax on
 set t_Co=256
 set colorcolumn=80
 set cursorline
+set hidden
 set mouse=a
 set tabstop=4
 set noshowmode
@@ -27,3 +28,7 @@ autocmd BufNewFile,BufRead *.md :set spell
 command W w !sudo tee % > /dev/null
 map q :q<CR>
 map <Space> za
+nnoremap <C-L> :NERDTreeTabsToggle<CR>
+nnoremap <C-T> :tabnew<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
