@@ -152,8 +152,8 @@ bindsym $mod+0					workspace					$workspace10
 #}}}
 
 # Other Keybindings{{{
-bindsym $mod+Shift+e			exec --no-startup-id		i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'
-bindsym $mod+Shift+r			exec --no-startup-id		i3-msg restart; /home/reed/scripts/launch.sh
+bindsym $mod+Shift+e			exec --no-startup-id		"i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+r			exec --no-startup-id		"i3-msg restart; ~/scripts/launch.sh"
 bindsym $sup+l					exec --no-startup-id		/home/reed/.config/i3lock/lock.sh
 bindsym $sup+space				exec --no-startup-id		rofi -show run
 bindsym Print					exec --no-startup-id		maim -s -u | xclip -selection clipboard -t image/png
