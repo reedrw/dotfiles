@@ -26,162 +26,161 @@ set_from_resource $base0D color12	#000000
 set_from_resource $base0E color5	#000000
 set_from_resource $base0F color17	#000000
 
-# class                 border  backgr. text    indicator
-client.focused          $base05 $base05 $base00 $base05
-client.focused_inactive $base02 $base02 $base05 $base00
-client.unfocused        $base02 $base02 $base05 $base00
-client.urgent           $base01 $base01 $base05 $base00
+# class							border  backgr. text    indicator
+client.focused					$base05 $base05 $base00 $base05
+client.focused_inactive			$base02 $base02 $base05 $base00
+client.unfocused				$base02 $base02 $base05 $base00
+client.urgent					$base01 $base01 $base05 $base00
 
 new_window pixel 2
 new_float pixel 2
 
 font pango:scientifica 12
-for_window [class="Termite"] border normal 0
-for_window [class=".*"] title_format "<span font='scientifica 8'> > %title</span>"
+for_window [class="Termite"]	border			normal 0
+for_window [class=".*"]			title_format	"<span font='scientifica 8'> > %title</span>"
 #}}}
 
 # Variables{{{
-set $mod Mod1
-set $sup Mod4
-set $terminal termite
+set $mod			Mod1
+set $sup			Mod4
+set $workspace1		"1"
+set $workspace2		"2"
+set $workspace3		"3"
+set $workspace4		"4"
+set $workspace5		"5"
+set $workspace6		"6"
+set $workspace7		"7"
+set $workspace8		"8"
+set $workspace9		"9"
+set $workspace10	"10"
+set $terminal		termite
 #}}}
 
 # Window Movement (excluding workspaces){{{
-bindsym $mod+Return exec $terminal
-bindsym $mod+Shift+q kill
+bindsym $mod+Return				exec $terminal
+bindsym $mod+Shift+q			kill
 
 # focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+j					focus left
+bindsym $mod+k					focus down
+bindsym $mod+l					focus up
+bindsym $mod+semicolon			focus right
+bindsym $mod+Left				focus left
+bindsym $mod+Down				focus down
+bindsym $mod+Up					focus up
+bindsym $mod+Right				focus right
 
 # movement
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+j			move left
+bindsym $mod+Shift+k			move down
+bindsym $mod+Shift+l			move up
+bindsym $mod+Shift+semicolon	move right
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left			move left
+bindsym $mod+Shift+Down			move down
+bindsym $mod+Shift+Up			move up
+bindsym $mod+Shift+Right		move right
 
 # splitting
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $mod+h					split h
+bindsym $mod+v					split v
 
 # fullscreen
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f					fullscreen toggle
 
 # container layout
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+s					layout stacking
+bindsym $mod+w					layout tabbed
+bindsym $mod+e					layout toggle split
 
 # floating
 floating_modifier $mod
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space		floating toggle
+bindsym $mod+space				focus mode_toggle
 
 # parent/child focus
-bindsym $mod+a focus parent
-bindsym $mod+d focus child
+bindsym $mod+a					focus parent
+bindsym $mod+d					focus child
 
 # resizing
-bindsym $sup+Left resize shrink width 5 px or 5 ppt
-bindsym $sup+Down resize grow height 5 px or 5 ppt
-bindsym $sup+Up resize shrink height 5 px or 5 ppt
-bindsym $sup+Right resize grow width 5 px or 5 ppt
+bindsym $sup+Left				resize shrink width 5 px or 5 ppt
+bindsym $sup+Down				resize grow height 5 px or 5 ppt
+bindsym $sup+Up					resize shrink height 5 px or 5 ppt
+bindsym $sup+Right				resize grow width 5 px or 5 ppt
 
-bindsym $sup+Shift+Left resize shrink width 1 px or 1 ppt
-bindsym $sup+Shift+Down resize grow height 1 px or 1 ppt
-bindsym $sup+Shift+Up resize shrink height 1 px or 1 ppt
-bindsym $sup+Shift+Right resize grow width 1 px or 1 ppt
+bindsym $sup+Shift+Left			resize shrink width 1 px or 1 ppt
+bindsym $sup+Shift+Down			resize grow height 1 px or 1 ppt
+bindsym $sup+Shift+Up			resize shrink height 1 px or 1 ppt
+bindsym $sup+Shift+Right		resize grow width 1 px or 1 ppt
 #}}}
 
 # Gaps{{{
-gaps inner 20
-gaps outer 10
+gaps inner 10
+gaps outer 5
 
-bindsym $mod+minus		 gaps inner all minus 5
-bindsym $mod+plus		 gaps inner all plus 5
-
-bindsym $mod+Shift+minus gaps outer all minus 5
-bindsym $mod+Shift+plus	 gaps outer all plus 5
+bindsym $mod+minus				gaps inner all minus 5
+bindsym $mod+plus				gaps inner all plus 5
+bindsym $mod+Shift+minus		gaps outer all minus 5
+bindsym $mod+Shift+plus			gaps outer all plus 5
 #}}}
 
 # Workspaces (including window movement){{{
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
-
 
 # movement
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1			move container to workspace $workspace1
+bindsym $mod+Shift+2			move container to workspace $workspace2
+bindsym $mod+Shift+3			move container to workspace $workspace3
+bindsym $mod+Shift+4			move container to workspace $workspace4
+bindsym $mod+Shift+5			move container to workspace $workspace5
+bindsym $mod+Shift+6			move container to workspace $workspace6
+bindsym $mod+Shift+7			move container to workspace $workspace7
+bindsym $mod+Shift+8			move container to workspace $workspace8
+bindsym $mod+Shift+9			move container to workspace $workspace9
+bindsym $mod+Shift+0			move container to workspace $workspace10
 
 # active workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1					workspace					$workspace1
+bindsym $mod+2					workspace					$workspace2
+bindsym $mod+3					workspace					$workspace3
+bindsym $mod+4					workspace					$workspace4
+bindsym $mod+5					workspace					$workspace5
+bindsym $mod+6					workspace					$workspace6
+bindsym $mod+7					workspace					$workspace7
+bindsym $mod+8					workspace					$workspace8
+bindsym $mod+9					workspace					$workspace9
+bindsym $mod+0					workspace					$workspace10
 #}}}
 
 # Other Keybindings{{{
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart; /home/reed/scripts/launch.sh"
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym Print exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
-bindsym $mod+o open
-bindsym $sup+space exec "rofi -show run"
-bindsym $sup+l exec --no-startup-id /home/reed/.config/i3lock/lock.sh
+bindsym $mod+Shift+e			exec --no-startup-id		i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'
+bindsym $mod+Shift+r			exec --no-startup-id		i3-msg restart; /home/reed/scripts/launch.sh
+bindsym $sup+l					exec --no-startup-id		/home/reed/.config/i3lock/lock.sh
+bindsym $sup+space				exec --no-startup-id		rofi -show run
+bindsym Print					exec --no-startup-id		maim -s -u | xclip -selection clipboard -t image/png
+bindsym $mod+o					open
+bindsym $mod+Shift+c			reload
 #}}}
 
 # Pulse Audio Controls{{{
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume	exec --no-startup-id pactl	set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume	exec --no-startup-id pactl	set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute			exec --no-startup-id pactl	set-sink-mute 0 toggle # mute sound
 #}}}
 
 # Media Player Controls{{{
-bindsym XF86AudioNext exec --no-startup-id mpc next
-bindsym XF86AudioPlay exec --no-startup-id mpc toggle
-bindsym XF86AudioPrev exec --no-startup-id mpc prev
-bindsym XF86AudioStop exec --no-startup-id mpc clear && /home/reed/scripts/killm.sh ncmpcpp
+bindsym XF86AudioNext			exec --no-startup-id mpc	next
+bindsym XF86AudioPlay			exec --no-startup-id mpc	toggle
+bindsym XF86AudioPrev			exec --no-startup-id mpc	prev
+bindsym XF86AudioStop			exec --no-startup-id mpc	clear && /home/reed/scripts/killm.sh ncmpcpp
 #}}}
 
 # Autostart{{{
-exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id compton
-exec --no-startup-id dunst
-exec --no-startup-id mpd
-exec --no-startup-id mousetrap -t 7
-exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-fill ~/.cache/16script/background.jpg
+exec --no-startup-id			xrdb ~/.Xresources
+exec --no-startup-id			compton
+exec --no-startup-id			dunst
+exec --no-startup-id			mpd
+exec --no-startup-id			lemonbar -g 100x36
+exec --no-startup-id			mousetrap -t 7
+exec --no-startup-id			nm-applet
+exec --no-startup-id			feh --bg-fill ~/.cache/16script/background.jpg
 #}}}

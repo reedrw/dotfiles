@@ -1,3 +1,4 @@
+; vim:filetype=cfg
 ;                 __      __
 ;    ____  ____  / /_  __/ /_  ____ ______
 ;   / __ \/ __ \/ / / / / __ \/ __ `/ ___/
@@ -8,28 +9,28 @@
 ;{{{ Colors
 [colors]
 background = ${xrdb:color0}
-background-alt = #444
+background-alt = ;444
 foreground = ${xrdb:color7}
 foreground-alt = ${xrdb:color20}
 primary = ${xrdb:color3}
 secondary = ${xrdb:color5}
-alert = #bd2c40
-col = #00f
+alert = ;bd2c40
+col = ;00f
 ;}}}
 
 ;{{{ bar/example
 [bar/example]
 monitor = ${env:MONITOR:LVDS-1}
-;width = 1362
-width = 100%
+width = 1336
+;width = 100%
 height = 26
-;offset-x = 2
-;offset-y = 2
+offset-x = 15
+offset-y = 10
 ;radius = 6.0
 fixed-center = true
 
-;override-redirect = true
-;wm-restack = i3
+override-redirect = true
+wm-restack = i3
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -49,7 +50,7 @@ font-2 = Wuncon Siji:pixelsize=11;1
 
 modules-left = i3 mpd
 modules-center = date
-modules-right = wlan battery lnbar
+modules-right = wlan volume battery lnbar
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -79,7 +80,7 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
 
-label-mounted = %{F#0a81f5}~%{F-}: %percentage_used%%
+label-mounted = %{F;0a81f5}~%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 ;}}}
@@ -110,7 +111,7 @@ ws-icon-9 = 10;X
 
 label-mode = " "
 label-mode-padding = 2
-label-mode-foreground = #000
+label-mode-foreground = ;000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
@@ -141,7 +142,7 @@ label-urgent-padding = 0
 [module/mpd]
 type = internal/mpd
 format-online = <icon-prev> <label-song>
-#<toggle>
+;<toggle>
 
 icon-prev = 
 icon-prev-foreground = ${xrdb:color10}
@@ -149,12 +150,12 @@ icon-stop = 
 icon-play = 
 icon-pause = 
 icon-next = 
-#icon-prev = <-
-#icon-stop = X
-#icon-play-prefix = #f00
-#icon-play = (Paused)
-#icon-pause =
-#icon-next = ->
+;icon-prev = <-
+;icon-stop = X
+;icon-play-prefix = #f00
+;icon-play = (Paused)
+;icon-pause =
+;icon-next = ->
 
 ;bar-progress-width = 45
 ;bar-progress-indicator = |
@@ -176,11 +177,11 @@ label = BL
 
 bar-width = 10
 bar-indicator = |
-bar-indicator-foreground = #ff
+bar-indicator-foreground = ;ff
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-foreground = ;9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
@@ -213,7 +214,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-;format-connected-underline = #9f78e1
+;format-connected-underline = ;9f78e1
 label-connected = %essid%
 
 format-disconnected = <label-disconnected>
@@ -248,30 +249,33 @@ label =  %time%
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+;format-volume = <label-volume> <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
-bar-volume-width = 10
-bar-volume-foreground-0 = ${xrdb:color10}
-bar-volume-foreground-1 = ${xrdb:color10}
-bar-volume-foreground-2 = ${xrdb:color10}
-bar-volume-foreground-3 = ${xrdb:color10}
-bar-volume-foreground-4 = ${xrdb:color10}
-bar-volume-foreground-5 = ${xrdb:color11}
-bar-volume-foreground-6 = ${xrdb:color1}
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+;bar-volume-width = 10
+;bar-volume-foreground-0 = ${xrdb:color10}
+;bar-volume-foreground-1 = ${xrdb:color10}
+;bar-volume-foreground-2 = ${xrdb:color10}
+;bar-volume-foreground-3 = ${xrdb:color10}
+;bar-volume-foreground-4 = ${xrdb:color10}
+;bar-volume-foreground-5 = ${xrdb:color11}
+;bar-volume-foreground-6 = ${xrdb:color1}
+;bar-volume-gradient = false
+;bar-volume-indicator = |
+;bar-volume-indicator-font = 2
+;bar-volume-fill = ─
+;bar-volume-fill-font = 2
+;bar-volume-empty = ─
+;bar-volume-empty-font = 2
+;bar-volume-empty-foreground = ${colors.foreground-alt}
 ;}}}
 
 ;{{{ battery
@@ -281,11 +285,11 @@ battery = BAT0
 adapter = ADP1
 full-at = 98
 
-#format-charging = Charging... <label-charging>
+;format-charging = Charging... <label-charging>
 format-charging = <animation-charging> Charging... <label-charging>
 format-charging-underline = ${colors.background}
 
-#format-discharging = <label-discharging>
+;format-discharging = <label-discharging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.background}
 
@@ -313,7 +317,7 @@ warn-temperature = 60
 
 format = <ramp> <label>
 format-underline = ${xrdb:color1}
-;format-underline = #f50a4d
+;format-underline = ;f50a4d
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
@@ -388,7 +392,7 @@ tray-position = left
 tray-detached = false
 tray-padding = 0
 ;tray-transparent = true
-;tray-background = #0063ff
+;tray-background = ;0063ff
 ;}}}
 
 ;{{{ closeb
