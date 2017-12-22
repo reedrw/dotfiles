@@ -1,8 +1,8 @@
 [options]
 
-font = scientifica 8
+font         = scientifica 8
 cursor_shape = underline
-allow_bold = false
+allow_bold   = false
 
 [colors]
 

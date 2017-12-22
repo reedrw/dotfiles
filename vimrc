@@ -13,8 +13,10 @@ let airline#extensions#tabline#tabs_label = ''
 let airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline_powerline_fonts = 1
 colorscheme base16-default-dark
 set nu
+set relativenumber
 syntax on
 set t_Co=256
 set colorcolumn=80

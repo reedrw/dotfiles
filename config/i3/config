@@ -37,6 +37,7 @@ new_float  pixel 2
 
 font pango:scientifica 12
 for_window [class="Termite" ] border normal 0
+for_window [class="URxvt"   ] border normal 0
 for_window [class=".*"      ] title_format "<span font='scientifica 8'> > %title</span>"
 #                                                                                                           }}}
 
