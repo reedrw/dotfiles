@@ -8,409 +8,378 @@
 
 ;{{{ Colors
 [colors]
-background = ${xrdb:color0}
-background-alt = ;444
-foreground = ${xrdb:color7}
-foreground-alt = ${xrdb:color20}
-primary = ${xrdb:color3}
-secondary = ${xrdb:color5}
-alert = ;bd2c40
-col = ;00f
+	background     = ${xrdb:color0}
+	foreground     = ${xrdb:color7}
+	foreground-alt = ${xrdb:color20}
+	primary        = ${xrdb:color3}
+	secondary      = ${xrdb:color5}
 ;}}}
 
 ;{{{ bar/example
 [bar/example]
-monitor = ${env:MONITOR:LVDS-1}
-width = 1336
-;width = 100%
-height = 26
-offset-x = 15
-offset-y = 10
-;radius = 6.0
-fixed-center = true
+	monitor      = ${env:MONITOR:LVDS-1}
+	width        = 1336
+	height       = 26
+	offset-x     = 15
+	offset-y     = 10
+	fixed-center = true
 
-override-redirect = true
-wm-restack = i3
+	override-redirect = true
+	wm-restack        = i3
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+	background = ${colors.background}
+	foreground = ${colors.foreground}
 
-line-size = 3
-line-color = {$xrdb:color1}
+	line-size  = 3
+	line-color = {$xrdb:color1}
 
-padding-left = 1
-padding-right = 1
+	padding-left  = 1
+	padding-right = 1
 
-module-margin-left = 1
-module-margin-right = 2
+	module-margin-left  = 1
+	module-margin-right = 2
 
-font-0 = scientifica:pixelsize=11;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Wuncon Siji:pixelsize=11;1
+	font-0 = scientifica:pixelsize = 11;1
+	font-1 = unifont:fontformat    = truetype:size = 8:antialias = false;0
+	font-2 = Wuncon Siji:pixelsize = 11;1
 
-modules-left = i3 mpd
-modules-center = date
-modules-right = wlan volume battery lnbar
+	modules-left   = i3 mpd
+	modules-center = date
+	modules-right  = wlan volume battery lnbar
 
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+	scroll-up   = i3wm-wsnext
+	scroll-down = i3wm-wsprev
 ;}}}
 
 ;{{{ example modules
-;{{{ xwindow
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-;}}}
-
-;{{{ xkeyboard
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
-
-label-layout = %layout%
-label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
-
-label-mounted = %{F;0a81f5}~%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-;}}}
 
 ;{{{ i3
 [module/i3]
-type = internal/i3
-format = <label-mode> <label-state>
-index-sort = true
-wrapping-scroll = false
-strip-wsnumbers = true
+	type            = internal/i3
+	format          = <label-mode> <label-state>
+	index-sort      = true
+	wrapping-scroll = false
+	strip-wsnumbers = true
 
-; Only show workspaces on the same output as the bar
-pin-workspaces = false
+	; Only show workspaces on the same output as the bar
+	pin-workspaces = false
 
-ws-icon-0 = 1;I
-ws-icon-1 = 2;II
-ws-icon-2 = 3;III
-ws-icon-3 = 4;IV
-ws-icon-4 = 5;V
-ws-icon-5 = 6;VI
-ws-icon-6 = 7;VII
-ws-icon-7 = 8;VIII
-ws-icon-8 = 9;IX
-ws-icon-9 = 10;X
+	ws-icon-0 = 1;I
+	ws-icon-1 = 2;II
+	ws-icon-2 = 3;III
+	ws-icon-3 = 4;IV
+	ws-icon-4 = 5;V
+	ws-icon-5 = 6;VI
+	ws-icon-6 = 7;VII
+	ws-icon-7 = 8;VIII
+	ws-icon-8 = 9;IX
+	ws-icon-9 = 10;X
 
-;format = <label-state> <label-mode>
+	;format = <label-state> <label-mode>
 
-label-mode = " "
-label-mode-padding = 2
-label-mode-foreground = ;000
-label-mode-background = ${colors.primary}
+	label-mode            = " "
+	label-mode-padding    = 2
+	label-mode-foreground = ;000
+	label-mode-background = ${colors.primary}
 
-; focused = Active workspace on focused monitor
-label-focused = 
-label-focused-background = ${colors.background}
-label-focused-foreground = ${xrdb:color2}
-label-focused-underline = ${colors.background}
-label-focused-padding = 0
+	; focused                = Active workspace on focused monitor
+	label-focused            = 
+	label-focused-background = ${colors.background}
+	label-focused-foreground = ${xrdb:color2}
+	label-focused-underline  = ${colors.background}
+	label-focused-padding    = 0
 
-; unfocused = Inactive workspace on any monitor
-label-unfocused = 
-label-unfocused-padding = 0
+	; unfocused             = Inactive workspace on any monitor
+	label-unfocused         = 
+	label-unfocused-padding = 0
 
-; visible = Active workspace on unfocused monitor
-;label-visible = %icon%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
+	; visible                = Active workspace on unfocused monitor
+	;label-visible           = %icon%
+	label-visible-background = ${self.label-focused-background}
+	label-visible-underline  = ${self.label-focused-underline}
+	label-visible-padding    = ${self.label-focused-padding}
 
-; urgent = Workspace with urgency hint set
-label-urgent = 
-label-urgent-foreground = ${xrdb:color1}
-label-urgent-background = ${colors.background}
-label-urgent-padding = 0
+	; urgent                = Workspace with urgency hint set
+	label-urgent            = 
+	label-urgent-foreground = ${xrdb:color1}
+	label-urgent-background = ${colors.background}
+	label-urgent-padding    = 0
 ;}}}
 
 ;{{{ mpd
 [module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <label-song>
-;<toggle>
+	type          = internal/mpd
+	format-online = <icon-prev> <label-song>
+	;<toggle>
 
-icon-prev = 
-icon-prev-foreground = ${xrdb:color10}
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-;icon-prev = <-
-;icon-stop = X
-;icon-play-prefix = #f00
-;icon-play = (Paused)
-;icon-pause =
-;icon-next = ->
+	icon-prev            = 
+	icon-prev-foreground = ${xrdb:color10}
+	icon-stop            = 
+	icon-play            = 
+	icon-pause           = 
+	icon-next            = 
+	;icon-prev           = <-
+	;icon-stop           = X
+	;icon-play-prefix    = #f00
+	;icon-play           = (Paused)
+	;icon-pause          =
+	;icon-next           = ->
 
-;bar-progress-width = 45
-;bar-progress-indicator = |
-;bar-progress-fill = -
-;bar-progress-empty = -
+	;bar-progress-width     = 45
+	;bar-progress-indicator = |
+	;bar-progress-fill      = -
+	;bar-progress-empty     = -
 
-;label-song =%artist% - %title%
-label-song =%title%
-label-song-maxlen = 70
-label-song-ellipsis = true
+	;label-song         = %artist% - %title%
+	label-song          = %title%
+	label-song-maxlen   = 70
+	label-song-ellipsis = true
 ;}}}
 
 ;{{{ xbacklight
 [module/xbacklight]
-type = internal/xbacklight
+	type = internal/xbacklight
 
-format = <label> <bar>
-label = BL
+	format = <label> <bar>
+	label  = BL
 
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = ;ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = ;9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+	bar-width                = 10
+	bar-indicator            = |
+	bar-indicator-foreground = ;ff
+	bar-indicator-font       = 2
+	bar-fill                 = ─
+	bar-fill-font            = 2
+	bar-fill-foreground      = ;9f78e1
+	bar-empty                = ─
+	bar-empty-font           = 2
+	bar-empty-foreground     = ${colors.foreground-alt}
 ;}}}
 
 ;{{{ cpu
 [module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color1}
-label = %percentage%%
+	type                     = internal/cpu
+	interval                 = 2
+	format-prefix            = " "
+	format-prefix-foreground = ${colors.foreground-alt}
+	format-underline         = ${xrdb:color1}
+	label                    = %percentage%%
 ;}}}
 
- ;{{{ memory
+;{{{ memory
 [module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${xrdb:color6}
-label = %percentage_used%%
+	type                     = internal/memory
+	interval                 = 2
+	format-prefix            = " "
+	format-prefix-foreground = ${colors.foreground-alt}
+	format-underline         = ${xrdb:color6}
+	label                    = %percentage_used%%
 ;}}}
 
 ;{{{ wlan
 [module/wlan]
-type = internal/network
-interface = wlp3s0
-interval = 3.0
+	type      = internal/network
+	interface = wlp3s0
+	interval  = 3.0
 
-format-connected = <ramp-signal> <label-connected>
-;format-connected-underline = ;9f78e1
-label-connected = %essid%
+	format-connected            = <ramp-signal> <label-connected>
+	;format-connected-underline = ;9f78e1
+	label-connected             = %essid%
 
-format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+	format-disconnected            = <label-disconnected>
+	;format-disconnected-underline = ${self.format-connected-underline}
+	label-disconnected             = %ifname% disconnected
+	;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${xrdb:color5}
+	ramp-signal-0          = 
+	ramp-signal-1          = 
+	ramp-signal-2          = 
+	ramp-signal-3          = 
+	ramp-signal-4          = 
+	ramp-signal-foreground = ${xrdb:color5}
 ;}}}
 
 ;{{{ date
 [module/date]
-type = internal/date
-interval = 1
+	type     = internal/date
+	interval = 1
 
-date = " %a, %b %d, %Y"
-time = " %a %I:%M%p"
+	date = " %a, %b %d, %Y"
+	time = " %a %I:%M%p"
 
-format-prefix = 
-format-prefix-foreground = ${xrdb:color10}
-format-underline = ${colors.background}
+	format-prefix            = 
+	format-prefix-foreground = ${xrdb:color10}
+	format-underline         = ${colors.background}
 
-label =  %time%
+	label = %time%
 ;}}}
 
 ;{{{ volume
 [module/volume]
-type = internal/volume
+	type = internal/volume
 
-;format-volume = <label-volume> <bar-volume>
-format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%%
-label-volume-foreground = ${root.foreground}
+	;format-volume          = <label-volume> <bar-volume>
+	format-volume           = <ramp-volume> <label-volume>
+	label-volume            = %percentage%%
+	label-volume-foreground = ${root.foreground}
 
-label-muted = sound muted
+	label-muted = sound muted
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+	ramp-volume-0 = 
+	ramp-volume-1 = 
+	ramp-volume-2 = 
 
-;bar-volume-width = 10
-;bar-volume-foreground-0 = ${xrdb:color10}
-;bar-volume-foreground-1 = ${xrdb:color10}
-;bar-volume-foreground-2 = ${xrdb:color10}
-;bar-volume-foreground-3 = ${xrdb:color10}
-;bar-volume-foreground-4 = ${xrdb:color10}
-;bar-volume-foreground-5 = ${xrdb:color11}
-;bar-volume-foreground-6 = ${xrdb:color1}
-;bar-volume-gradient = false
-;bar-volume-indicator = |
-;bar-volume-indicator-font = 2
-;bar-volume-fill = ─
-;bar-volume-fill-font = 2
-;bar-volume-empty = ─
-;bar-volume-empty-font = 2
-;bar-volume-empty-foreground = ${colors.foreground-alt}
+	;bar-volume-width            = 10
+	;bar-volume-foreground-0     = ${xrdb:color10}
+	;bar-volume-foreground-1     = ${xrdb:color10}
+	;bar-volume-foreground-2     = ${xrdb:color10}
+	;bar-volume-foreground-3     = ${xrdb:color10}
+	;bar-volume-foreground-4     = ${xrdb:color10}
+	;bar-volume-foreground-5     = ${xrdb:color11}
+	;bar-volume-foreground-6     = ${xrdb:color1}
+	;bar-volume-gradient         = false
+	;bar-volume-indicator        = |
+	;bar-volume-indicator-font   = 2
+	;bar-volume-fill             = ─
+	;bar-volume-fill-font        = 2
+	;bar-volume-empty            = ─
+	;bar-volume-empty-font       = 2
+	;bar-volume-empty-foreground = ${colors.foreground-alt}
 ;}}}
 
 ;{{{ battery
 [module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 98
+	type    = internal/battery
+	battery = BAT0
+	adapter = ADP1
+	full-at = 98
 
-;format-charging = Charging... <label-charging>
-format-charging = <animation-charging> Charging... <label-charging>
-format-charging-underline = ${colors.background}
+	;format-charging          = Charging... <label-charging>
+	format-charging           = <animation-charging> Charging... <label-charging>
+	format-charging-underline = ${colors.background}
 
-;format-discharging = <label-discharging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${colors.background}
+	;format-discharging          = <label-discharging>
+	format-discharging           = <ramp-capacity> <label-discharging>
+	format-discharging-underline = ${colors.background}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+	format-full-prefix            = " "
+	format-full-prefix-foreground = ${colors.foreground-alt}
+	format-full-underline         = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+	ramp-capacity-0          = 
+	ramp-capacity-1          = 
+	ramp-capacity-2          = 
+	ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+	animation-charging-0          = 
+	animation-charging-1          = 
+	animation-charging-2          = 
+	animation-charging-foreground = ${colors.foreground-alt}
+	animation-charging-framerate  = 750
 ;}}}
 
 ;{{{ temperature
 [module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+	type             = internal/temperature
+	thermal-zone     = 0
+	warn-temperature = 60
 
-format = <ramp> <label>
-format-underline = ${xrdb:color1}
-;format-underline = ;f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+	format                = <ramp> <label>
+	format-underline      = ${xrdb:color1}
+	;format-underline     = ;f50a4d
+	format-warn           = <ramp> <label-warn>
+	format-warn-underline = ${self.format-underline}
 
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
+	label                 = %temperature%
+	label-warn            = %temperature%
+	label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+	ramp-0          = 
+	ramp-1          = 
+	ramp-2          = 
+	ramp-foreground = ${colors.foreground-alt}
 ;}}}
 
 ;{{{ powermenu
 [module/powermenu]
-type = custom/menu
+	type = custom/menu
 
-format-spacing = 1
+	format-spacing = 1
 
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+	label-open                 = 
+	label-open-foreground      = ${colors.secondary}
+	label-close                =  cancel
+	label-close-foreground     = ${colors.secondary}
+	label-separator            = |
+	label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
+	menu-0-0      = reboot
+	menu-0-0-exec = menu-open-1
+	menu-0-1      = power off
+	menu-0-1-exec = menu-open-2
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
+	menu-1-0      = cancel
+	menu-1-0-exec = menu-open-0
+	menu-1-1      = reboot
+	menu-1-1-exec = reboot
 
-menu-2-0 = power off
-menu-2-0-exec = poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+	menu-2-0      = power off
+	menu-2-0-exec = poweroff
+	menu-2-1      = cancel
+	menu-2-1-exec = menu-open-0
 ;}}}
 
 ;{{{ lnbar
 [module/lnbar]
-type = custom/text
-content = " "
-click-left = polybar notiftray
+	type       = custom/text
+	content    = " "
+	click-left = polybar notiftray
+;}}}
 ;}}}
 
 ;}}}
 
 ;{{{ bar/notiftray
 [bar/notiftray]
-monitor = ${env:MONITOR:LVDS-1}
-width = 100%
-height = 24
-offset-x = 93%
-offset-y = 24
-;radius = 6.0
-fixed-center = false
+	monitor      = ${env:MONITOR:LVDS-1}
+	width        = 100%
+	height       = 24
+	offset-x     = 93%
+	offset-y     = 24
+	;radius      = 6.0
+	fixed-center = false
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+	background = ${colors.background}
+	foreground = ${colors.foreground}
 
-font-0 = scientifica:pixelsize=11;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Wuncon Siji:pixelsize=11;1
+	font-0 = scientifica:pixelsize = 11;1
+	font-1 = unifont:fontformat    = truetype:size = 8:antialias = false;0
+	font-2 = Wuncon Siji:pixelsize = 11;1
 
-modules-right = closeb
+	modules-right = closeb
 
-tray-position = left
-tray-detached = false
-tray-padding = 0
-;tray-transparent = true
-;tray-background = ;0063ff
+	tray-position     = left
+	tray-detached     = false
+	tray-padding      = 0
+	;tray-transparent = true
+	;tray-background  = ;0063ff
 ;}}}
 
 ;{{{ closeb
 [module/closeb]
-type = custom/text
-content = "| Close "
-click-left = "pkill -n polybar"
+	type       = custom/text
+	content    = "| Close "
+	click-left = "pkill -n polybar"
 ;}}}
 
 ;{{{ settings
 [settings]
-throttle-output = 10
-throttle-output-for = 10
-throttle-input-for = 30
+	throttle-output     = 10
+	throttle-output-for = 10
+	throttle-input-for  = 30
 ;}}}
 
 ;{{{ global/wm
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+	margin-top    = 5
+	margin-bottom = 5
 ;}}}

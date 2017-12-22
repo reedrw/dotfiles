@@ -7,6 +7,12 @@
 execute pathogen#infect()
 let base16colorspace=256
 let g:airline_theme='base16'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let airline#extensions#tabline#tabs_label = ''
+let airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_close_button = 0
+let g:airline#extensions#tabline#fnamemod = ':t'
 colorscheme base16-default-dark
 set nu
 syntax on
@@ -20,9 +26,8 @@ set noshowmode
 set ttimeoutlen=50
 set updatetime=40
 set foldmethod=marker
-set list lcs=tab:\¦\ "
+set list lcs=tab:>·,eol:¬
 let g:livepreview_previewer = 'zathura'
-let g:airline_powerline_fonts = 1
 autocmd BufNewFile,BufRead *.tex :set spell
 autocmd BufNewFile,BufRead *.md :set spell
 command W w !sudo tee % > /dev/null
