@@ -180,7 +180,7 @@ exec --no-startup-id polybar example
 exec --no-startup-id compton
 exec --no-startup-id dunst
 exec --no-startup-id mpd
-exec --no-startup-id lemonbar -g 100x36 &> why
+exec --no-startup-id lemonbar -g 100x36
 exec --no-startup-id mousetrap -t 7
 exec --no-startup-id nm-applet
 exec --no-startup-id sleep .25; hsetroot -solid "$(xrdb -query | grep 'color2' | cut -f2 | head -n 1)"
