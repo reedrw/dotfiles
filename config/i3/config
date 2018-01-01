@@ -175,7 +175,7 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 bindsym XF86AudioStop exec --no-startup-id mpc clear && /home/reed/scripts/killm.sh ncmpcpp
 #                                                                                                           }}}
 
-# Autostart                                                                                                   {{{
+# Autostart                                                                                                 {{{
 exec --no-startup-id polybar example
 exec --no-startup-id compton
 exec --no-startup-id dunst

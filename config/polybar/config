@@ -336,8 +336,6 @@
 ;}}}
 ;}}}
 
-;}}}
-
 ;{{{ bar/notiftray
 [bar/notiftray]
 	monitor      = ${env:MONITOR:LVDS-1}

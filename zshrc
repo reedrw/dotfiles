@@ -6,7 +6,7 @@
 #(_)___/____/_/ /_/_/   \___/
 #
 
-[ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && exec startx -- vt1 &> /dev/null
+[ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && exec startx -- vt1
 
 EDITOR="vim"
 ZSH=$HOME/.oh-my-zsh
