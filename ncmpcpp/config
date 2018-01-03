@@ -52,7 +52,7 @@ current_item_inactive_column_suffix = "$/r$(end)"
 window_border_color = "white"
 active_window_border = "cyan"
 
-lyrics_fetchers = azlyrics, genius, sing365, lyricsmania, lyricwiki, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
+lyrics_fetchers = genius, sing365, lyricsmania, lyricwiki, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
 
 mpd_host = "127.0.0.1"
 mpd_port = "6600"

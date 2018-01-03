@@ -15,8 +15,8 @@ let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 colorscheme base16-default-dark
-set nu
 syntax on
+set nu
 set t_Co=256
 set colorcolumn=80
 set cursorline
@@ -27,7 +27,7 @@ set noshowmode
 set ttimeoutlen=50
 set updatetime=40
 set foldmethod=marker
-set list lcs=tab:>·,eol:¬
+set list lcs=tab:\│\ ,eol:¬
 let g:livepreview_previewer = 'zathura'
 autocmd BufNewFile,BufRead *.tex :set spell
 autocmd BufNewFile,BufRead *.md :set spell
