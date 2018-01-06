@@ -1,8 +1,11 @@
-"          _
-"  _   __(_)___ ___  __________
-" | | / / / __ `__ \/ ___/ ___/
-" | |/ / / / / / / / /  / /__
-"()___/_/_/ /_/ /_/_/   \___/
+
+"                      ##
+"                      ""
+"         ##m  m##   ####     ####m##m   ##m####   m#####m
+"          ##  ##      ##     ## ## ##   ##"      ##"    "
+"          "#mm#"      ##     ## ## ##   ##       ##
+"  ##       ####    mmm##mmm  ## ## ##   ##       "##mmmm#
+"  ""        ""     """"""""  "" "" ""   ""         """""
 
 execute pathogen#infect()
 let base16colorspace=256
@@ -16,6 +19,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_powerline_fonts = 1
 colorscheme base16-default-dark
 syntax on
+set title
 set nu
 set t_Co=256
 set colorcolumn=80

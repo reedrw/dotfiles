@@ -18,10 +18,10 @@
 ;{{{ bar/example
 [bar/example]
 	monitor      = ${env:MONITOR:LVDS-1}
-	width        = 1336
+	width        = 1326
 	height       = 26
-	offset-x     = 15
-	offset-y     = 10
+	offset-x     = 20
+	offset-y     = 15
 	fixed-center = true
 
 	override-redirect = true
