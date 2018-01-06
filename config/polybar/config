@@ -21,7 +21,7 @@
 	width        = 1326
 	height       = 26
 	offset-x     = 20
-	offset-y     = 15
+	offset-y     = 12
 	fixed-center = true
 
 	override-redirect = true
