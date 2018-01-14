@@ -7,7 +7,7 @@
 #  ##     m##mmmmm  #mmmmm##  ##    ##   ##       "##mmmm#
 #  ""     """"""""   """"""   ""    ""   ""         """""
 
-[ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && exec startx -- vt1
+[ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && exec startx
 
 ZSH="$HOME/.oh-my-zsh"
 

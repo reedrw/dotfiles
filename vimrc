@@ -1,4 +1,4 @@
-
+"
 "                      ##
 "                      ""
 "         ##m  m##   ####     ####m##m   ##m####   m#####m
@@ -22,8 +22,8 @@ syntax on
 set title
 set nu
 set t_Co=256
-set colorcolumn=80
-set cursorline
+"set colorcolumn=80
+"set cursorline
 set hidden
 set mouse=a
 set tabstop=4
@@ -35,9 +35,11 @@ set list lcs=tab:\│\ ,eol:¬
 let g:livepreview_previewer = 'zathura'
 autocmd BufNewFile,BufRead *.tex :set spell
 autocmd BufNewFile,BufRead *.md :set spell
+command C '<,'>w !xclip -i -selection clipboard
 command W w !sudo tee % > /dev/null
 map q :q<CR>
 map <Space> za
+map <C-S-c> :w !xclip -i -selection clipboard<CR><CR>
 nnoremap <C-L> :NERDTreeTabsToggle<CR>
 nnoremap <C-T> :tabnew<CR>
 nnoremap <C-Left> :tabprevious<CR>

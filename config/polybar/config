@@ -52,7 +52,6 @@
 ;}}}
 
 ;{{{ example modules
-
 ;{{{ i3
 [module/i3]
 	type            = internal/i3

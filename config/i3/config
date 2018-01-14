@@ -8,7 +8,7 @@
 #  """"""""   """""
 
 # Colors and Customization                                                                                  {{{
-exec --no-startup-id ~/scripts/16script/16script.sh $( cat ~/.cache/16script/lastuse ); sleep .25; polybar example
+exec --no-startup-id ~/scripts/16script/16script.sh $( cat ~/.cache/16script/lastuse ) ~/scripts/16script/16scriptpart2.sh
 
 set_from_resource $base00 color0  #000000
 set_from_resource $base01 color18 #000000
@@ -55,7 +55,7 @@ set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
 set $workspace10 "10"
-set $terminal termite
+set $terminal urxvt
 #                                                                                                           }}}
 
 # Window Movement (excluding workspaces)                                                                    {{{
@@ -155,11 +155,11 @@ bindsym $mod+0 workspace $workspace10
 
 # Other Keybindings                                                                                         {{{
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart; pkill -USR1 polybar"
+bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
 bindsym $sup+l       exec --no-startup-id /home/reed/.config/i3lock/lock.sh
-bindsym $sup+space   exec --no-startup-id rofi -show run
+bindsym $sup+space   exec --no-startup-id rofi -show run -lines 10 -width 40
 bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
-bindsym $mod+o open
+bindsym $mod+o       open
 bindsym $mod+Shift+c reload
 #                                                                                                           }}}
 
@@ -177,12 +177,11 @@ bindsym XF86AudioStop exec --no-startup-id mpc clear && /home/reed/scripts/killm
 #                                                                                                           }}}
 
 # Autostart                                                                                                 {{{
-exec --no-startup-id polybar example
+exec_always pkill -USR1 polybar
+exec --no-startup-id "~/.config/polybar/launch.sh"
 exec --no-startup-id compton
 exec --no-startup-id dunst
-exec --no-startup-id mpd
 exec --no-startup-id lemonbar -g 100x36
 exec --no-startup-id mousetrap -t 7
 exec --no-startup-id nm-applet
-exec --no-startup-id sleep .25; hsetroot -solid "$(xrdb -query | grep 'color2' | cut -f2 | head -n 1)"
 #                                                                                                           }}}
