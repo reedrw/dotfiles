@@ -45,17 +45,17 @@ for_window [class=".*"      ] title_format "<span font='scientifica 8'> > %title
 # Variables                                                                                                 {{{
 set $mod Mod1
 set $sup Mod4
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
 set $terminal urxvt
+set $workspace1  "1"
+set $workspace2  "2"
+set $workspace3  "3"
+set $workspace4  "4"
+set $workspace5  "5"
+set $workspace6  "6"
+set $workspace7  "7"
+set $workspace8  "8"
+set $workspace9  "9"
+set $workspace10 "10"
 #                                                                                                           }}}
 
 # Window Movement (excluding workspaces)                                                                    {{{
@@ -154,34 +154,33 @@ bindsym $mod+0 workspace $workspace10
 #                                                                                                           }}}
 
 # Other Keybindings                                                                                         {{{
+bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
+bindsym $sup+l       exec --no-startup-id ~/.config/i3lock/lock.sh
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
-bindsym $sup+l       exec --no-startup-id /home/reed/.config/i3lock/lock.sh
 bindsym $sup+space   exec --no-startup-id rofi -show run -lines 10 -width 40
-bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
 bindsym $mod+o       open
 bindsym $mod+Shift+c reload
 #                                                                                                           }}}
 
 # Pulse Audio Controls                                                                                      {{{
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 #                                                                                                           }}}
 
 # Media Player Controls                                                                                     {{{
+bindsym XF86AudioStop exec --no-startup-id mpc clear && /home/reed/scripts/killm.sh ncmpcpp
 bindsym XF86AudioNext exec --no-startup-id mpc next
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioPrev exec --no-startup-id mpc prev
-bindsym XF86AudioStop exec --no-startup-id mpc clear && /home/reed/scripts/killm.sh ncmpcpp
 #                                                                                                           }}}
 
 # Autostart                                                                                                 {{{
-exec_always pkill -USR1 polybar
-exec --no-startup-id "~/.config/polybar/launch.sh"
-exec --no-startup-id compton
-exec --no-startup-id dunst
-exec --no-startup-id lemonbar -g 100x36
-exec --no-startup-id mousetrap -t 7
-exec --no-startup-id nm-applet
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec        --no-startup-id nm-applet
+exec        --no-startup-id mousetrap -t 7
+exec        --no-startup-id lemonbar -g 100x36
+exec        --no-startup-id dunst
+exec        --no-startup-id compton
 #                                                                                                           }}}

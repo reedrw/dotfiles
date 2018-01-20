@@ -33,10 +33,10 @@
 	line-size  = 3
 	line-color = {$xrdb:color1}
 
-	padding-left  = 1
+	padding-left  = 2
 	padding-right = 1
 
-	module-margin-left  = 1
+	module-margin-left  = 1.5
 	module-margin-right = 2
 
 	font-0 = scientifica:pixelsize = 11;1

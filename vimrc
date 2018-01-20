@@ -22,8 +22,8 @@ syntax on
 set title
 set nu
 set t_Co=256
-"set colorcolumn=80
-"set cursorline
+set colorcolumn=80
+set cursorline
 set hidden
 set mouse=a
 set tabstop=4
