@@ -21,6 +21,7 @@ colorscheme base16-default-dark
 syntax on
 set title
 set nu
+"set relativenumber
 set t_Co=256
 set colorcolumn=80
 set cursorline

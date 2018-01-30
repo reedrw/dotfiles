@@ -34,7 +34,7 @@
 	line-color = {$xrdb:color1}
 
 	padding-left  = 2
-	padding-right = 1
+	padding-right = 3
 
 	module-margin-left  = 1.5
 	module-margin-right = 2
@@ -45,7 +45,7 @@
 
 	modules-left   = i3 mpd
 	modules-center = date
-	modules-right  = wlan volume battery lnbar
+	modules-right  = wlan volume battery
 
 	scroll-up   = i3wm-wsnext
 	scroll-down = i3wm-wsprev
@@ -326,46 +326,6 @@
 	menu-2-1      = cancel
 	menu-2-1-exec = menu-open-0
 ;}}}
-
-;{{{ lnbar
-[module/lnbar]
-	type       = custom/text
-	content    = " "
-	click-left = polybar notiftray
-;}}}
-;}}}
-
-;{{{ bar/notiftray
-[bar/notiftray]
-	monitor      = ${env:MONITOR:LVDS-1}
-	width        = 100%
-	height       = 24
-	offset-x     = 93%
-	offset-y     = 24
-	;radius      = 6.0
-	fixed-center = false
-
-	background = ${colors.background}
-	foreground = ${colors.foreground}
-
-	font-0 = scientifica:pixelsize = 11;1
-	font-1 = unifont:fontformat    = truetype:size = 8:antialias = false;0
-	font-2 = Wuncon Siji:pixelsize = 11;1
-
-	modules-right = closeb
-
-	tray-position     = left
-	tray-detached     = false
-	tray-padding      = 0
-	;tray-transparent = true
-	;tray-background  = ;0063ff
-;}}}
-
-;{{{ closeb
-[module/closeb]
-	type       = custom/text
-	content    = "| Close "
-	click-left = "pkill -n polybar"
 ;}}}
 
 ;{{{ settings

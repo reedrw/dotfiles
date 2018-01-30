@@ -1,4 +1,4 @@
-mpd_music_dir = "/home/reed/Music"
+mpd_music_dir = "~/Music"
 message_delay_time = "2"
 
 #visualizer_in_stereo = "yes"
@@ -54,7 +54,7 @@ active_window_border = "cyan"
 
 lyrics_fetchers = genius, sing365, lyricsmania, lyricwiki, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
 
-mpd_host = "127.0.0.1"
+mpd_host = "localhost"
 mpd_port = "6600"
 
 execute_on_song_change = notify-send "Now Playing ♫" "$(mpc current)"

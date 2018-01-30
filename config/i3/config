@@ -155,6 +155,7 @@ bindsym $mod+0 workspace $workspace10
 
 # Other Keybindings                                                                                         {{{
 bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
+bindsym $mod+r       exec --no-startup-id pgrep redshift > /dev/null && killall redshift || redshift &
 bindsym $sup+l       exec --no-startup-id ~/.config/i3lock/lock.sh
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
@@ -183,4 +184,5 @@ exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id lemonbar -g 100x36
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
+exec        --no-startup-id feh --bg-tile ~/dotfiles/wallpapers/blackfloral.png
 #                                                                                                           }}}
