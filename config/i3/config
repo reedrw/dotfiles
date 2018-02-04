@@ -53,6 +53,18 @@ set $workspace7  "7"
 set $workspace8  "8"
 set $workspace9  "9"
 set $workspace10 "10"
+set $workspace11 "11"
+set $workspace12 "12"
+set $workspace13 "13"
+set $workspace14 "14"
+set $workspace15 "15"
+set $workspace16 "16"
+set $workspace17 "17"
+set $workspace18 "18"
+set $workspace19 "19"
+set $workspace20 "20"
+set $workspace21 "21"
+set $workspace22 "22"
 #                                                                                                           }}}
 
 # Window Movement (excluding workspaces)                                                                    {{{
@@ -126,28 +138,52 @@ bindsym $mod+Shift+plus  gaps outer all plus  5
 # Workspaces (including window movement)                                                                    {{{
 
 # movement
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1   move container to workspace $workspace1
+bindsym $mod+Shift+2   move container to workspace $workspace2
+bindsym $mod+Shift+3   move container to workspace $workspace3
+bindsym $mod+Shift+4   move container to workspace $workspace4
+bindsym $mod+Shift+5   move container to workspace $workspace5
+bindsym $mod+Shift+6   move container to workspace $workspace6
+bindsym $mod+Shift+7   move container to workspace $workspace7
+bindsym $mod+Shift+8   move container to workspace $workspace8
+bindsym $mod+Shift+9   move container to workspace $workspace9
+bindsym $mod+Shift+0   move container to workspace $workspace10
+bindsym $mod+Shift+F1  move container to workspace $workspace11
+bindsym $mod+Shift+F2  move container to workspace $workspace12
+bindsym $mod+Shift+F3  move container to workspace $workspace13
+bindsym $mod+Shift+F4  move container to workspace $workspace14
+bindsym $mod+Shift+F5  move container to workspace $workspace15
+bindsym $mod+Shift+F6  move container to workspace $workspace16
+bindsym $mod+Shift+F7  move container to workspace $workspace17
+bindsym $mod+Shift+F8  move container to workspace $workspace18
+bindsym $mod+Shift+F9  move container to workspace $workspace19
+bindsym $mod+Shift+F10 move container to workspace $workspace20
+bindsym $mod+Shift+F11 move container to workspace $workspace21
+bindsym $mod+Shift+F12 move container to workspace $workspace22
 
 # active workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1   workspace $workspace1
+bindsym $mod+2   workspace $workspace2
+bindsym $mod+3   workspace $workspace3
+bindsym $mod+4   workspace $workspace4
+bindsym $mod+5   workspace $workspace5
+bindsym $mod+6   workspace $workspace6
+bindsym $mod+7   workspace $workspace7
+bindsym $mod+8   workspace $workspace8
+bindsym $mod+9   workspace $workspace9
+bindsym $mod+0   workspace $workspace10
+bindsym $mod+F1  workspace $workspace11
+bindsym $mod+F2  workspace $workspace12
+bindsym $mod+F3  workspace $workspace13
+bindsym $mod+F4  workspace $workspace14
+bindsym $mod+F5  workspace $workspace15
+bindsym $mod+F6  workspace $workspace16
+bindsym $mod+F7  workspace $workspace17
+bindsym $mod+F8  workspace $workspace18
+bindsym $mod+F9  workspace $workspace19
+bindsym $mod+F10 workspace $workspace20
+bindsym $mod+F11 workspace $workspace21
+bindsym $mod+F12 workspace $workspace22
 #                                                                                                           }}}
 
 # Other Keybindings                                                                                         {{{
@@ -162,9 +198,9 @@ bindsym $mod+Shift+c reload
 #                                                                                                           }}}
 
 # Pulse Audio Controls                                                                                      {{{
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   1 toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 #                                                                                                           }}}
 
 # Media Player Controls                                                                                     {{{
@@ -180,5 +216,5 @@ exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
-exec        --no-startup-id feh --bg-fill ~/dotfiles/wallpapers/wallhaven-51149.jpg
+exec        --no-startup-id feh --bg-fill ~/dotfiles/wallpapers/wallhaven-511449.jpg
 #                                                                                                           }}}

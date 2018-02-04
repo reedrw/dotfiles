@@ -55,7 +55,7 @@ active_window_border = "cyan"
 visualizer_sync_interval = "30"
 statusbar_visibility = no
 
-lyrics_fetchers = genius, sing365, lyricsmania, lyricwiki, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
+lyrics_fetchers = genius, lyricsmania, lyricwiki, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
 
 mpd_host = "localhost"
 mpd_port = "6600"

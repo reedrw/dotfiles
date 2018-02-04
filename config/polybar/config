@@ -63,7 +63,7 @@ font-1=scientifica:pixelsize=10;2
 font-2=scientifica:pixelsize=10;2
 
 modules-left= workspaces music
-modules-center=
+modules-center= xwindow
 modules-right= essid volume backlight battery date
 
 fixed-center = true
@@ -105,7 +105,7 @@ type=internal/date
 interval=1.0
 date=
 date-alt= [ %a %d, %b |
-time=" %a %I:%M %p "
+time="%a %I:%M %p "
 time-alt=%H:%M:%S %p ]
 label=%date% %time%
 
@@ -375,7 +375,10 @@ label-empty-foreground=${colors.obifg}
 
 [module/backlight]
 type = internal/backlight
-card = intel_backlight
+
+output = LVDS-1
+
+card = acpi_video0
 enable-scroll = false
 
 format = <label>
