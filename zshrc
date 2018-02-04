@@ -12,7 +12,7 @@
 ZSH="$HOME/.oh-my-zsh"
 
 EDITOR="vim"
-ZSH_THEME="essembeh"
+ZSH_THEME="reed"
 
 [ $USER = "root" ] && SCRIPTS="/home/reed/scripts" || SCRIPTS="$HOME/scripts"
 
@@ -27,16 +27,15 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 # Aliases{{{
 alias aringa="       $SCRIPTS/aringa.sh                    "
 alias c="            $SCRIPTS/clipboard.sh                 "
+alias panes="        $SCRIPTS/panes                        "
+alias qems="         $SCRIPTS/qems.sh                      "
+alias qimg="         $SCRIPTS/qemuimage.sh                 "
 alias screenrecord=" $SCRIPTS/screenrecord.sh              "
 alias timestamp="    $SCRIPTS/timestamp.sh                 "
-alias qimg="         $SCRIPTS/qemuimage.sh                 "
-alias qems="         $SCRIPTS/qems.sh                      "
-alias panes="        $SCRIPTS/panes                        "
 alias lock="         $HOME/.config/i3lock/lock.sh          "
 alias cfig="         $EDITOR $HOME/.config/i3/config       "
 alias x="            exit                                  "
 alias v="            vim                                   "
-alias pac="          trizen -Syu                           "
 alias sep="          bg && disown && exit                  "
 alias open="         xdg-open                              "
 alias ls="           exa                                   "

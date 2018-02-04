@@ -33,13 +33,10 @@ client.focused_inactive $base02 $base02 $base05 $base00
 client.unfocused        $base02 $base02 $base05 $base00
 client.urgent           $base01 $base01 $base05 $base00
 
-new_window pixel 2
-new_float  pixel 2
+new_window pixel 4
+new_float  pixel 4
 
 font pango:scientifica 12
-for_window [class="Termite" ] border normal 0
-for_window [class="URxvt"   ] border normal 0
-for_window [class=".*"      ] title_format "<span font='scientifica 8'> > %title</span>"
 #                                                                                                           }}}
 
 # Variables                                                                                                 {{{
@@ -165,9 +162,9 @@ bindsym $mod+Shift+c reload
 #                                                                                                           }}}
 
 # Pulse Audio Controls                                                                                      {{{
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   1 toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
 #                                                                                                           }}}
 
 # Media Player Controls                                                                                     {{{
@@ -181,7 +178,6 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
-exec        --no-startup-id lemonbar -g 100x36
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
 exec        --no-startup-id feh --bg-tile ~/dotfiles/wallpapers/blackfloral.png
