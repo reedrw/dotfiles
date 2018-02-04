@@ -12,7 +12,7 @@ message_delay_time = "2"
 song_list_format = "{%a - }{%t}|{$8%f$9}$R{$7(%b)$9}"
 song_status_format = "{%a - }{%t - }{%b}"
 alternative_header_first_line_format = "{$5%t$/b}"
-alternative_header_second_line_format		= "$7{$b%a$/b}$9 - $5{%b}$9 $8{(%y)}"
+alternative_header_second_line_format= "$7{$b%a$/b}$9 - $5{%b}$9 $8{(%y)}"
 now_playing_prefix = "$b"
 now_playing_suffix = "$/b"
 
@@ -51,6 +51,9 @@ current_item_inactive_column_prefix = "$(cyan)$r"
 current_item_inactive_column_suffix = "$/r$(end)"
 window_border_color = "white"
 active_window_border = "cyan"
+
+visualizer_sync_interval = "30"
+statusbar_visibility = no
 
 lyrics_fetchers = genius, sing365, lyricsmania, lyricwiki, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
 

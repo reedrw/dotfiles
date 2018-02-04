@@ -114,7 +114,7 @@ bindsym $sup+Shift+Right resize grow   width  1 px or 1 ppt
 #                                                                                                           }}}
 
 # Gaps                                                                                                      {{{
-gaps inner 20
+gaps inner 30
 gaps outer 0
 
 bindsym $mod+minus       gaps inner all minus 5
@@ -180,5 +180,5 @@ exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
-exec        --no-startup-id feh --bg-tile ~/dotfiles/wallpapers/blackfloral.png
+exec        --no-startup-id feh --bg-fill ~/dotfiles/wallpapers/wallhaven-51149.jpg
 #                                                                                                           }}}
