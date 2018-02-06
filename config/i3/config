@@ -29,7 +29,7 @@ set_from_resource $base0F color17 #000000
 
 #                       class   border  backgr. text indicator
 client.focused          $base05 $base05 $base00 $base05
-client.focused_inactive $base02 $base02 $base05 $base00
+client.focused_inactive $base02 $base02 $base05 $base02
 client.unfocused        $base02 $base02 $base05 $base00
 client.urgent           $base01 $base01 $base05 $base00
 
@@ -216,5 +216,5 @@ exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
-exec        --no-startup-id feh --bg-fill ~/dotfiles/wallpapers/wallhaven-511449.jpg
+exec        --no-startup-id ~/scripts/walper.sh -e
 #                                                                                                           }}}

@@ -7,6 +7,8 @@
 #  ##     m##mmmmm  #mmmmm##  ##    ##   ##       "##mmmm#
 #  ""     """"""""   """"""   ""    ""   ""         """""
 
+SUDO_PROMPT='][sudo] %p :'
+
 [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && exec startx
 
 ZSH="$HOME/.oh-my-zsh"
@@ -22,7 +24,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 . "$SCRIPTS/transfer.sh"
 . "$HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-"$BASE16_SHELL/scripts/$(< $HOME/.cache/16script/lastuse).sh"
+~/scripts/walper.sh -s
 
 # Aliases{{{
 alias aringa="       $SCRIPTS/aringa.sh                    "
