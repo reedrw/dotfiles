@@ -33,8 +33,8 @@ client.focused_inactive $base02 $base02 $base05 $base02
 client.unfocused        $base02 $base02 $base05 $base00
 client.urgent           $base01 $base01 $base05 $base00
 
-new_window pixel 4
-new_float  pixel 4
+new_window pixel 3
+new_float  pixel 3
 
 font pango:scientifica 12
 #                                                                                                           }}}
@@ -126,8 +126,8 @@ bindsym $sup+Shift+Right resize grow   width  1 px or 1 ppt
 #                                                                                                           }}}
 
 # Gaps                                                                                                      {{{
-gaps inner 30
-gaps outer 0
+gaps inner 15
+gaps outer 10
 
 bindsym $mod+minus       gaps inner all minus 5
 bindsym $mod+plus        gaps inner all plus  5

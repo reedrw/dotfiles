@@ -7,8 +7,6 @@
 #  ##     m##mmmmm  #mmmmm##  ##    ##   ##       "##mmmm#
 #  ""     """"""""   """"""   ""    ""   ""         """""
 
-SUDO_PROMPT='][sudo] %p :'
-
 [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] && exec startx
 
 ZSH="$HOME/.oh-my-zsh"
