@@ -7,7 +7,7 @@
 #  mmm##mmm  #mmmm##"
 #  """"""""   """""
 
-# Colors and Customization                                                                                  {{{
+# Colors and Customization {{{
 exec --no-startup-id ~/scripts/16script/16script.sh $( cat ~/.cache/16script/lastuse ) ~/scripts/16script/16scriptpart2.sh
 
 set_from_resource $base00 color0  #000000
@@ -37,9 +37,9 @@ new_window pixel 3
 new_float  pixel 3
 
 font pango:scientifica 12
-#                                                                                                           }}}
+# }}}
 
-# Variables                                                                                                 {{{
+# Variables {{{
 set $mod Mod1
 set $sup Mod4
 set $terminal urxvt
@@ -65,9 +65,9 @@ set $workspace19 "19"
 set $workspace20 "20"
 set $workspace21 "21"
 set $workspace22 "22"
-#                                                                                                           }}}
+# }}}
 
-# Window Movement (excluding workspaces)                                                                    {{{
+# Window Movement (excluding workspaces) {{{
 bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q kill
 
@@ -123,9 +123,9 @@ bindsym $sup+Shift+Left  resize shrink width  1 px or 1 ppt
 bindsym $sup+Shift+Down  resize grow   height 1 px or 1 ppt
 bindsym $sup+Shift+Up    resize shrink height 1 px or 1 ppt
 bindsym $sup+Shift+Right resize grow   width  1 px or 1 ppt
-#                                                                                                           }}}
+# }}}
 
-# Gaps                                                                                                      {{{
+# Gaps {{{
 gaps inner 15
 gaps outer 10
 
@@ -133,9 +133,9 @@ bindsym $mod+minus       gaps inner all minus 5
 bindsym $mod+plus        gaps inner all plus  5
 bindsym $mod+Shift+minus gaps outer all minus 5
 bindsym $mod+Shift+plus  gaps outer all plus  5
-#                                                                                                           }}}
+# }}}
 
-# Workspaces (including window movement)                                                                    {{{
+# Workspaces (including window movement) {{{
 
 # movement
 bindsym $mod+Shift+1   move container to workspace $workspace1
@@ -184,9 +184,9 @@ bindsym $mod+F9  workspace $workspace19
 bindsym $mod+F10 workspace $workspace20
 bindsym $mod+F11 workspace $workspace21
 bindsym $mod+F12 workspace $workspace22
-#                                                                                                           }}}
+# }}}
 
-# Other Keybindings                                                                                         {{{
+# Other Keybindings {{{
 bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
 bindsym $mod+r       exec --no-startup-id pgrep redshift > /dev/null && killall redshift || redshift &
 bindsym $sup+l       exec --no-startup-id ~/.config/i3lock/lock.sh
@@ -195,26 +195,26 @@ bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
 bindsym $sup+space   exec --no-startup-id rofi -show run -lines 10 -width 40
 bindsym $mod+o       open
 bindsym $mod+Shift+c reload
-#                                                                                                           }}}
+# }}}
 
-# Pulse Audio Controls                                                                                      {{{
+# Pulse Audio Controls {{{
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-#                                                                                                           }}}
+# }}}
 
-# Media Player Controls                                                                                     {{{
+# Media Player Controls {{{
 bindsym XF86AudioStop exec --no-startup-id mpc clear && /home/reed/scripts/killm.sh ncmpcpp
 bindsym XF86AudioNext exec --no-startup-id mpc next
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioPrev exec --no-startup-id mpc prev
-#                                                                                                           }}}
+# }}}
 
-# Autostart                                                                                                 {{{
+# Autostart {{{
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
 exec        --no-startup-id ~/scripts/walper.sh -e
-#                                                                                                           }}}
+# }}}
