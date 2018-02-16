@@ -1,4 +1,4 @@
-; vim:ft = cfg
+; vim:ft=cfg
 ;--------------------------------------------
 ; colors                                    ;
 ;--------------------------------------------
@@ -55,9 +55,9 @@
 	module-margin-left = 2
 
 	font-N = <fontconfig pattern>;<vertical offset>
-	font-0 = WunconSiji:size                        = 4;2
-	font-1 = scientifica:pixelsize                  = 10;2
-	font-2 = scientifica:pixelsize                  = 10;2
+	font-0 = WunconSiji:size=4;2
+	font-1 = scientifica:pixelsize=10;2
+	font-2 = scientifica:pixelsize=10;2
 
 	modules-left   = workspaces music
 	modules-center = xwindow

@@ -8,7 +8,6 @@
 "  ""        ""     """"""""  "" "" ""   ""         """""
 
 execute pathogen#infect()
-let g:airline_powerline_fonts = 1
 colorscheme wal
 syntax on
 set title
