@@ -8,6 +8,14 @@
 "  ""        ""     """"""""  "" "" ""   ""         """""
 
 execute pathogen#infect()
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.maxlinenr = ' ln'
+let g:airline_symbols.branch = '⭠'
+
 colorscheme wal
 syntax on
 set title
