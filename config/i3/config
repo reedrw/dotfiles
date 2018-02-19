@@ -176,7 +176,7 @@ bindsym $mod+F12 workspace $workspace22
 # }}}
 
 # Other Keybindings {{{
-bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
+bindsym Print        exec --no-startup-id flameshot gui
 bindsym $mod+r       exec --no-startup-id pgrep redshift > /dev/null && killall redshift || redshift &
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
@@ -200,6 +200,7 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
 # Autostart {{{
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec        --no-startup-id flameshot
 exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst
