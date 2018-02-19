@@ -8,7 +8,7 @@
 #  """"""""   """""
 
 # Colors and Customization {{{
-exec --no-startup-id ~/scripts/16script/16script.sh $( cat ~/.cache/16script/lastuse ) ~/scripts/16script/16scriptpart2.sh
+exec --no-startup-id ~/scripts/16script/16script.sh $( cat ~/.cache/16script/lastuse )
 
 set_from_resource $base00 color0  #000000
 set_from_resource $base01 color18 #000000
@@ -29,8 +29,8 @@ set_from_resource $base0F color17 #000000
 
 #                       class   border  backgr. text indicator
 client.focused          $base05 $base05 $base00 $base05
-client.focused_inactive $base02 $base02 $base05 $base02
-client.unfocused        $base02 $base02 $base05 $base00
+client.focused_inactive $base03 $base03 $base05 $base03
+client.unfocused        $base03 $base03 $base05 $base00
 client.urgent           $base01 $base01 $base05 $base00
 
 new_window pixel 3
@@ -72,25 +72,16 @@ bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q kill
 
 # focus
-bindsym $mod+j         focus left
-bindsym $mod+k         focus down
-bindsym $mod+l         focus up
-bindsym $mod+semicolon focus right
-bindsym $mod+Left      focus left
-bindsym $mod+Down      focus down
-bindsym $mod+Up        focus up
-bindsym $mod+Right     focus right
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
 
 # movement
-bindsym $mod+Shift+j         move left
-bindsym $mod+Shift+k         move down
-bindsym $mod+Shift+l         move up
-bindsym $mod+Shift+semicolon move right
-
-bindsym $mod+Shift+Left      move left
-bindsym $mod+Shift+Down      move down
-bindsym $mod+Shift+Up        move up
-bindsym $mod+Shift+Right     move right
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
 
 # splitting
 bindsym $mod+h split h
@@ -99,10 +90,8 @@ bindsym $mod+v split v
 # fullscreen
 bindsym $mod+f fullscreen toggle
 
-# container layout
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# sticky
+bindsym $mod+s sticky toggle
 
 # floating
 floating_modifier $mod
@@ -189,7 +178,6 @@ bindsym $mod+F12 workspace $workspace22
 # Other Keybindings {{{
 bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
 bindsym $mod+r       exec --no-startup-id pgrep redshift > /dev/null && killall redshift || redshift &
-bindsym $sup+l       exec --no-startup-id ~/.config/i3lock/lock.sh
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
 bindsym $sup+space   exec --no-startup-id rofi -show run -lines 10 -width 40
