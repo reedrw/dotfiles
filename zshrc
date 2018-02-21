@@ -31,6 +31,8 @@ BASE16_SHELL="${HOME}/.config/base16-shell/"
 . "${SCRIPTS}/transfer.sh"
 . "${HOME}/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
+test $RANGER_LEVEL && alias ranger="exit"
+
 sh -c '(rm -rf ${HOME}/*.core ${HOME}/Desktop ${HOME}/Downloads ${HOME}/nohup.out ${HOME}/*.hup > /dev/null 2>&1 &)'
 
 # Aliases{{{

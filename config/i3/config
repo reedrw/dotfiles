@@ -42,7 +42,7 @@ font pango:scientifica 12
 # Variables {{{
 set $mod Mod1
 set $sup Mod4
-set $terminal urxvt
+set $terminal tabbed -c urxvt -embed
 set $workspace1  "1"
 set $workspace2  "2"
 set $workspace3  "3"
@@ -90,8 +90,10 @@ bindsym $mod+v split v
 # fullscreen
 bindsym $mod+f fullscreen toggle
 
-# sticky
-bindsym $mod+s sticky toggle
+# container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # floating
 floating_modifier $mod
@@ -176,7 +178,7 @@ bindsym $mod+F12 workspace $workspace22
 # }}}
 
 # Other Keybindings {{{
-bindsym Print        exec --no-startup-id flameshot gui
+bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
 bindsym $mod+r       exec --no-startup-id pgrep redshift > /dev/null && killall redshift || redshift &
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
@@ -200,7 +202,6 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
 # Autostart {{{
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec        --no-startup-id flameshot
 exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst

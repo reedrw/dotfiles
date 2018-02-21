@@ -1,0 +1,40 @@
+diff --git a/config.def.h b/config.def.h
+index a9c65a9..b709419 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -162,8 +162,8 @@ MouseShortcut mshortcuts[] = {
+ 
+ MouseKey mkeys[] = {
+ 	/* button               mask            function        argument */
+-	{ Button4,              ShiftMask,      kscrollup,      {.i =  1} },
+-	{ Button5,              ShiftMask,      kscrolldown,    {.i =  1} },
++	{ Button4,              XK_NO_MOD,      kscrollup,      {.i =  1} },
++	{ Button5,              XK_NO_MOD,      kscrolldown,    {.i =  1} },
+ };
+ 
+ /* Internal keyboard shortcuts. */
+diff --git a/x.c b/x.c
+index 67dcfdc..45af5f2 100644
+--- a/x.c
++++ b/x.c
+@@ -255,13 +255,14 @@ bpress(XEvent *e)
+ 		return;
+ 	}
+ 
+-	for (ms = mshortcuts; ms < mshortcuts + mshortcutslen; ms++) {
+-		if (e->xbutton.button == ms->b
+-				&& match(ms->mask, e->xbutton.state)) {
+-			ttysend(ms->s, strlen(ms->s));
+-			return;
++	if (IS_SET(MODE_ALTSCREEN))
++		for (ms = mshortcuts; ms < mshortcuts + mshortcutslen; ms++) {
++			if (e->xbutton.button == ms->b
++					&& match(ms->mask, e->xbutton.state)) {
++				ttysend(ms->s, strlen(ms->s));
++				return;
++			}
+ 		}
+-	}
+ 
+ 	for (mk = mkeys; mk < mkeys + mkeyslen; mk++) {
+ 		if (e->xbutton.button == mk->b
