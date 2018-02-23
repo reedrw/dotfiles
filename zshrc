@@ -16,7 +16,7 @@ userreed(){
 	"${SCRIPTS}/walper.sh" -s
 }
 
-[ -z "${DISPLAY}" ] && [ -n "${XDG_VTNR}" ] && [ "${XDG_VTNR}" -eq 1 ] && exec startx && zsh
+[ -z "${DISPLAY}" ] && [ -n "${XDG_VTNR}" ] && [ "${XDG_VTNR}" -eq 1 ] && exec startx
 
 ZSH="$HOME/.oh-my-zsh"
 

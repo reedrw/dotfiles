@@ -36,7 +36,7 @@ client.urgent           $base01 $base01 $base05 $base00
 new_window pixel 3
 new_float  pixel 3
 
-font pango:scientifica 12
+font pango:scientifica 8
 # }}}
 
 # Variables {{{

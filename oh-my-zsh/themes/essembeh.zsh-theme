@@ -1,7 +1,7 @@
 # Theme with full path names and hostname
 # Handy if you work on different servers all the time;
 
-local return_code="%(?..%{$fg_bold[red]%}%? ↵%{$reset_color%})"
+local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
 function my_git_prompt_info() {
 	ref=$(git symbolic-ref HEAD 2> /dev/null) || return

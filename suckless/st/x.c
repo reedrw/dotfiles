@@ -255,14 +255,13 @@ bpress(XEvent *e)
 		return;
 	}
 
-	if (IS_SET(MODE_ALTSCREEN))
-		for (ms = mshortcuts; ms < mshortcuts + mshortcutslen; ms++) {
-			if (e->xbutton.button == ms->b
-					&& match(ms->mask, e->xbutton.state)) {
-				ttysend(ms->s, strlen(ms->s));
-				return;
-			}
+	for (ms = mshortcuts; ms < mshortcuts + mshortcutslen; ms++) {
+		if (e->xbutton.button == ms->b
+				&& match(ms->mask, e->xbutton.state)) {
+			ttysend(ms->s, strlen(ms->s));
+			return;
 		}
+	}
 
 	for (mk = mkeys; mk < mkeys + mkeyslen; mk++) {
 		if (e->xbutton.button == mk->b
