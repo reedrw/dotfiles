@@ -1,4 +1,4 @@
-mpd_music_dir = "~/Music"
+mpd_music_dir = "~/music"
 message_delay_time = "2"
 
 #visualizer_in_stereo = "yes"

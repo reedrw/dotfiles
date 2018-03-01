@@ -175,10 +175,11 @@ bindsym $mod+F9  workspace $workspace19
 bindsym $mod+F10 workspace $workspace20
 bindsym $mod+F11 workspace $workspace21
 bindsym $mod+F12 workspace $workspace22
-# }}}
+  # }}}
 
 # Other Keybindings {{{
 bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
+bindsym XF86Launch1  exec --no-startup-id ~/scripts/plumb.sh &> ~/what
 bindsym $mod+r       exec --no-startup-id pgrep redshift > /dev/null && killall redshift || redshift &
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"

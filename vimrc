@@ -18,6 +18,7 @@ let g:airline_symbols.branch = '⭠'
 
 colorscheme wal
 syntax on
+set t_Co=256
 set title
 set nu
 set relativenumber
@@ -28,7 +29,6 @@ set noshowmode
 set ttimeoutlen=50
 set updatetime=40
 set foldmethod=marker
-set list lcs=tab:\│\ ,eol:¬
 let g:livepreview_previewer = 'mupdf'
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufNewFile,BufRead *.tex :set spell
