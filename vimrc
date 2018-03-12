@@ -36,7 +36,7 @@ autocmd BufNewFile,BufRead *.md :set spell
 command W w !sudo tee % > /dev/null
 map q :q<CR>
 map <Space> za
-map <C-S-c> :w !xclip -i -selection clipboard<CR><CR>
+map <C-c> "+yy
 nnoremap <C-L> :NERDTreeTabsToggle<CR>
 nnoremap <C-T> :tabnew<CR>
 nnoremap <C-Left> :tabprevious<CR>

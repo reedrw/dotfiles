@@ -1,0 +1,68 @@
+.Dd 2016-08-12
+.Dt SENT 1
+.Sh NAME
+.Nm sent
+.Nd simple plaintext presentation tool
+.Sh SYNOPSIS
+.Nm
+.Op Fl v
+.Op Ar file
+.Sh DESCRIPTION
+.Nm
+is a simple plain text presentation tool for X. sent does not need LaTeX,
+LibreOffice or any other fancy file format. Instead, sent reads plain text
+describing the slides. sent can also draw images.
+.Pp
+Every paragraph represents a slide in the presentation. Especially for
+presentations using the Takahashi method this is very nice and allows
+you to write the presentation for a quick lightning talk within a
+few minutes.
+.Sh OPTIONS
+.Bl -tag -width Ds
+.It Fl v
+Print version information to stdout and exit.
+.El
+.Sh USAGE
+.Bl -tag -width Ds
+.It Em Mouse commands
+.Bl -tag -width Ds
+.It Sy Button1 | Button5
+Go to next slide, if existent.
+.It Sy Button3 | Button4
+Go to previous slide, if existent.
+.El
+.It Em Keyboard commands
+.Bl -tag -width Ds
+.It Sy Escape | q
+Quit.
+.It Sy r
+Reload the slides. Only works on file input.
+.It Sy Right | Return | Space | l | j | Down | Next | n
+Go to next slide, if existent.
+.It Sy Left | Backspace | h | k | Up | Prior | p
+Go to previous slide, if existent.
+.El
+.El
+.Sh FORMAT
+The presentation file is made up of at least one paragraph, with an
+empty line separating two slides.
+Each input line is interpreted literally, except from control characters
+at the beginning of lines described as follows:
+.Bl -tag -width Ds
+.It Sy @
+Create individual slide containing the image pointed to by the filename
+following the
+.Sy @ .
+.It Sy #
+Ignore this input line.
+.It Sy \e
+Create input line using the characters following the
+.Sy \e
+without interpreting them.
+.El
+.Sh CUSTOMIZATION
+.Nm
+can be customized by creating a custom config.h and (re)compiling the
+source code. This keeps it fast, secure and simple.
+.Sh SEE ALSO
+.Xr 2ff 1

@@ -36,6 +36,8 @@ client.urgent           $base01 $base01 $base05 $base00
 new_window pixel 3
 new_float  pixel 3
 
+for_window [class="URxvt"] floating enable
+
 font pango:scientifica 8
 # }}}
 
@@ -68,6 +70,7 @@ set $workspace22 "22"
 # }}}
 
 # Window Movement (excluding workspaces) {{{
+bindsym $sup+Return  exec --no-startup-id ~/scripts/selectterm
 bindsym $mod+Return  exec $terminal
 bindsym $mod+Shift+q kill
 
@@ -179,7 +182,6 @@ bindsym $mod+F12 workspace $workspace22
 
 # Other Keybindings {{{
 bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png
-bindsym XF86Launch1  exec --no-startup-id ~/scripts/plumb.sh &> ~/what
 bindsym $mod+r       exec --no-startup-id pgrep redshift > /dev/null && killall redshift || redshift &
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
@@ -203,9 +205,10 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
 # Autostart {{{
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec        --no-startup-id ~/scripts/walper.sh -e
+exec        --no-startup-id xset r rate 280 40
 exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
-exec        --no-startup-id ~/scripts/walper.sh -e
 # }}}
