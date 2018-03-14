@@ -7,7 +7,22 @@
 "  ##       ####    mmm##mmm  ## ## ##   ##       "##mmmm#
 "  ""        ""     """"""""  "" "" ""   ""         """""
 
-execute pathogen#infect()
+call plug#begin()
+
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'airblade/vim-gitgutter'
+Plug 'dylanaraps/wal.vim'
+Plug 'godlygeek/tabular'
+Plug 'junegunn/goyo.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/vis'
+
+call plug#end()
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}

@@ -37,7 +37,6 @@ sh -c '(rm -rf ${HOME}/*.core ${HOME}/Desktop ${HOME}/Downloads ${HOME}/nohup.ou
 
 # Aliases{{{
 alias aringa="       ${SCRIPTS}/aringa.sh                "
-alias c="            ${SCRIPTS}/clipboard.sh             "
 alias panes="        ${SCRIPTS}/panes                    "
 alias mp3="          ${SCRIPTS}/mp3.sh                   "
 alias qems="         ${SCRIPTS}/qems.sh                  "
@@ -52,5 +51,8 @@ alias cls="          clear                               "
 alias sep="          bg && disown && exit                "
 alias open="         xdg-open                            "
 alias ls="           exa                                 "
-alias load="         xrdb ${HOME}/.Xresources            "
 #}}
+
+# Functions{{{
+ldu() { command du -ahLd 1 2> /dev/null | sort -rh | head -n 20 ; }
+#}}}
