@@ -1,63 +1,51 @@
 mpd_music_dir = "~/music"
-message_delay_time = "2"
+mpd_crossfade_time = "2"
 
-#visualizer_in_stereo = "yes"
-#visualizer_fifo_path = "/tmp/mpd.fifo"
-#visualizer_output_name = "my_fifo"
-#visualizer_sync_interval = "25"
-#visualizer_type = "ellipse"
-#visualizer_look = "◆▋"
-#visualizer_color = "white"
+# Visualizer
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "fifo"
+visualizer_sync_interval= "30"
+visualizer_in_stereo = yes
+visualizer_look = "xx"
 
-song_list_format = "{%a - }{%t}|{$8%f$9}$R{$7(%b)$9}"
-song_status_format = "{%a - }{%t - }{%b}"
-alternative_header_first_line_format = "{$5%t$/b}"
-alternative_header_second_line_format= "$7{$b%a$/b}$9 - $5{%b}$9 $8{(%y)}"
-now_playing_prefix = "$b"
+# Playlist
+song_columns_list_format = "(6f)[blue]{l} (25)[red]{a} (40)[green]{t|f} (30)[yellow]{b}"
+now_playing_prefix = "$b$5»$7»$1» "
 now_playing_suffix = "$/b"
+playlist_display_mode = "columns" (classic/columns)
+autocenter_mode = "yes"
+centered_cursor = "yes"
 
-browser_playlist_prefix = "$7$bplaylist$/b$9 "
-selected_item_prefix = "$6"
-selected_item_suffix = "$9"
-song_window_title_format = "{%a - }{%t}|{%f}"
-
-song_columns_list_format = "(8)[white]{l} (28)[cyan]{a} (28)[white]{b} (50)[cyan]{t}"
-discard_colors_if_item_is_selected = "yes"
-progressbar_look = "─> "
-user_interface = "alternative" (classic/alternative)
-header_visibility = "no"
+# Bars
+song_status_format = "$2%a $1• $3%t $1• $4%b {(Disc %d) }$1• $5%y$1"
+progressbar_look = "─╼·"
 titles_visibility = "no"
-cyclic_scrolling = "yes"
-follow_now_playing_lyrics = "yes"
-mouse_support = "no"
-external_editor = "vim"
-use_console_editor = "yes" (set to yes, if your editor is console app)
 
-colors_enabled = "yes"
-empty_tag_color = "cyan"
+# Browser
+browser_playlist_prefix = "$2plist »$9 "
+browser_display_mode = "columns" (classic/columns)
+
+# Colors
+discard_colors_if_item_is_selected = "yes"
 header_window_color = "white"
 volume_color = "cyan"
-state_line_color = "white"
-state_flags_color = "white"
+state_line_color = "green"
+state_flags_color = "yellow"
 main_window_color = "white"
-color1 = "white"
-color2 = "cyan"
-current_item_prefix = "$(white)$r"
+color1 = "default"
+color2 = "green"
+#main_window_highlight_color = "red"
+current_item_prefix = "$(red)$r"
 current_item_suffix = "$/r$(end)"
-progressbar_color = "white"
-statusbar_color = "cyan"
-alternative_ui_separator_color = "black"
-current_item_inactive_column_prefix = "$(cyan)$r"
+progressbar_color = "yellow"
+statusbar_color = "white"
+#active_column_color = "red"
+current_item_inactive_column_prefix = "$(red)$r"
 current_item_inactive_column_suffix = "$/r$(end)"
-window_border_color = "white"
-active_window_border = "cyan"
 
-visualizer_sync_interval = "30"
-statusbar_visibility = no
-
-lyrics_fetchers = genius, lyricsmania, lyricwiki, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, internet
-
-mpd_host = "localhost"
-mpd_port = "6600"
-
-execute_on_song_change = notify-send "Now Playing ♫" "$(mpc current)"
+# Others
+song_window_title_format = "{%a > }{%t}{ [%b{ Disc %d}]}|{%f}"
+search_engine_display_mode = "columns" (classic/columns)
+follow_now_playing_lyrics = "yes"
+allow_for_physical_item_deletion = "yes"
+#display_screens_numbers_on_start = "no"

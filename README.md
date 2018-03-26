@@ -1,3 +1,3 @@
 # dotfiles
 ---
-![screenshot](screenshot.gif)
+![screenshot](screenshot.png)
