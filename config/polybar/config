@@ -37,7 +37,7 @@
 [bar/base]
 	dpi      = 192
 	width    = 100%
-	height   = 18
+	height   = 24
 	offset-x = 0
 	offset-y = 0
 
@@ -47,23 +47,23 @@
 	foreground = ${colors.bar_fg}
 
 	border-top-size     = 0
-	border-bottom-size  = 5
+	border-bottom-size  = 6
 	border-top-color    = ${colors.bar_bg}
 	border-bottom-color = #000f0f0f
 
 	spacing            = 0
 	padding-left       = 2
 	padding-right      = 1
-	module-margin-left = 2
+	module-margin-left = 0
 
 	font-N = <fontconfig pattern>;<vertical offset>
 	font-0 = WunconSiji:size=4;2
-	font-1 = scientifica:pixelsize=10;2
-	font-2 = scientifica:pixelsize=10;2
+	font-1 = lemon:pixelsize=10;1
+	font-2 = lemon:pixelsize=10;1
 
-	modules-left   = workspaces music
-;	modules-center = xwindow
-	modules-right  = essid volume battery date
+	modules-left   = music previous playpause next volume
+	modules-center = workspaces
+	modules-right  = essid battery date
 
 	fixed-center = true
 
@@ -86,23 +86,55 @@
 [module/date]
 	type     = internal/date
 	interval = 1.0
-	date     =
-	date-alt =  [ %a %d, %b |
 	time     = "%a %I:%M %p "
-	time-alt = %H:%M:%S %p ]
-	label    = %date% %time%
+	label    = "%time% "
 
 	format         = <label>
 	format-padding = 0
 
-	format-prefix            = 
-	format-prefix-background = ${colors.time_p_bg}
-	format-prefix-foreground = ${colors.modules_prefix_fg}
+	format-prefix            = " "
+	format-prefix-background = ${xrdb:color2}
+	format-prefix-foreground = ${xrdb:color18}
 	format-prefix-padding    = 1
 
-	label-background = ${colors.time_p_bg}
-	label-foreground = ${colors.modules_fg}
+	label-background = ${xrdb:color2}
+	label-foreground = ${xrdb:color18}
 	label-padding    = 0
+
+[module/previous]
+	type = custom/text
+
+	content = " "
+	content-background = ${xrdb:color18}
+	content-foreground = ${xrdb:color7}
+	content-padding = 1
+
+	click-left = mpc previous
+
+[module/playpause]
+	type = custom/script
+
+	exec = sh ~/.config/polybar/playpause.sh
+
+	interval= 1
+
+	label = %output%
+	label-background = ${xrdb:color18}
+	label-foreground = ${xrdb:color7}
+	label-padding = 0
+
+	click-left = mpc toggle
+
+[module/next]
+	type = custom/text
+
+	content = " "
+
+	content-background = ${xrdb:color18}
+	content-foreground = ${xrdb:color7}
+	content-padding = 1
+
+	click-left = mpc next
 
 [module/music]
 	type = internal/mpd
@@ -112,94 +144,72 @@
 
 	interval = 2
 
-	format-online = <icon-prev><label-song>
+	format-online = <label-song>
 
-	label-song         = %title%
+	label-song         = "  %artist% - %title% "
 	label-song-padding = 1
-
-	label                 = "%output:0:45:...%"
-	label-song-background = ${xrdb:color12}
-	label-song-foreground = ${colors.modules_fg}
-	label-padding-right   = 1
-
-	icon-prev            = 
-	icon-prev-background = ${xrdb:color12}
-	icon-prev-foreground = ${colors.modules_prefix_fg}
-	icon-prev-padding    = 1
+	label-song-background = ${xrdb:color2}
+	label-song-foreground = ${xrdb:color18}
 
 	format-online-prefix-padding = 1
 
-	click-left   = playerctl previous
-	click-middle = playerctl play-pause
-	click-right  = playerctl next
-
 [module/battery]
 	type          = internal/battery
-	full-at       = 99
+	full-at       = 98
 	battery       = BAT0
 	adapter       = AC0
 	poll-interval = 5
 
 	format-charging = <label-charging>
 
-	format-charging-prefix            = 
-	format-charging-prefix-background = ${colors.battery_p_bg}
-	format-charging-prefix-foreground = ${colors.modules_prefix_fg}
+	format-charging-prefix            = " "
+	format-charging-prefix-background = ${xrdb:color18}
+	format-charging-prefix-foreground = ${xrdb:color7}
 	format-charging-prefix-padding    = 1
 
-	label-charging            = %percentage%%
-	label-charging-background = ${colors.battery_p_bg}
-	label-charging-foreground = ${colors.modules_fg}
+	label-charging            = "%percentage%% "
+	label-charging-background = ${xrdb:color18}
+	label-charging-foreground = ${xrdb:color7}
 	label-charging-padding    = 1
 
 	format-discharging = <label-discharging>
 
-	format-discharging-prefix            = 
-	format-discharging-prefix-background = ${colors.battery_p_bg}
-	format-discharging-prefix-foreground = ${colors.modules_prefix_fg}
+	format-discharging-prefix            = " "
+	format-discharging-prefix-background = ${xrdb:color18}
+	format-discharging-prefix-foreground = ${xrdb:color7}
 	format-discharging-prefix-padding    = 1
 
-	label-discharging            = %percentage%%
-	label-discharging-background = ${colors.battery_p_bg}
-	label-discharging-foreground = ${colors.modules_fg}
+	label-discharging            = "%percentage%% "
+	label-discharging-background = ${xrdb:color18}
+	label-discharging-foreground = ${xrdb:color7}
 	label-discharging-padding    = 1
 
 	format-full = <label-full>
 
-	format-full-prefix            = 
-	format-full-prefix-background = ${colors.battery_p_bg}
-	format-full-prefix-foreground = ${colors.modules_prefix_fg}
+	format-full-prefix            = " "
+	format-full-prefix-background = ${xrdb:color18}
+	format-full-prefix-foreground = ${xrdb:color7}
 	format-full-prefix-padding    = 1
 
-	label-full            = %percentage%%
-	label-full-background = ${colors.battery_p_bg}
-	label-full-foreground = ${colors.modules_fg}
+	label-full            = "%percentage%% "
+	label-full-background = ${xrdb:color18}
+	label-full-foreground = ${xrdb:color7}
 	label-full-padding    = 1
 
 [module/volume]
 	type          = internal/volume
 	format-volume = <label-volume>
 
-	format-volume-prefix            = 
-	format-volume-prefix-background = ${colors.ram_p_bg}
-	format-volume-prefix-foreground = ${colors.modules_prefix_fg}
-	format-volume-prefix-padding    = 1
-
-	label-volume            = %percentage%%
-	label-volume-background = ${colors.ram_p_bg}
-	label-volume-foreground = ${colors.modules_fg}
-	label-volume-padding    = 1
+	label-volume            = " %percentage%"
+	label-volume-background = ${xrdb:color19}
+	label-volume-foreground = ${xrdb:color7}
+	label-volume-padding    = 2
 
 	format-muted = <label-muted>
 
-	format-muted-prefix            = 
-	format-muted-prefix-padding    = 1
-	format-muted-prefix-background = ${colors.ram_p_bg}
-	format-muted-prefix-foreground = ${colors.modules_prefix_fg}
-
-	label-muted            = 0%
-	label-muted-foreground = ${colors.modules_fg}
-	label-muted-background = ${colors.ram_p_bg}
+	label-muted            = " 0%"
+	label-muted-foreground = ${xrdb:color7}
+	label-muted-background = ${xrdb:color19}
 	label-muted-padding    = 1
 
 	format-volume-padding = 0
@@ -244,31 +254,31 @@
 
 	format-connected = <label-connected>
 
-	format-connected-prefix            = 
+	format-connected-prefix            = " "
 	format-connected-prefix-padding    = 1
-	format-connected-prefix-background = ${colors.essid_p_bg}
-	format-connected-prefix-foreground = ${colors.modules_prefix_fg}
+	format-connected-prefix-background = ${xrdb:color19}
+	format-connected-prefix-foreground = ${xrdb:color7}
 
-	label-connected            = %essid%
-	label-connected-background = ${colors.essid_p_bg}
-	label-connected-foreground = ${colors.modules_fg}
+	label-connected            = "%essid% "
+	label-connected-background = ${xrdb:color19}
+	label-connected-foreground = ${xrdb:color7}
 	label-connected-padding    = 1
 
-	ramp-signal-background    = ${colors.essid_p_bg}
-	ramp-signal-foreground    = ${colors.modules_prefix_fg}
-	ramp-connected-foreground = ${colors.modules_fg}
+	ramp-signal-background    = ${xrdb:color19}
+	ramp-signal-foreground    = ${xrdb:color7}
+	ramp-connected-foreground = ${xrdb:color7}
 	ramp-signal-padding       = 1
 
 	format-disconnected = <label-disconnected>
 
-	format-disconnected-prefix            = 
+	format-disconnected-prefix            = " "
 	format-disconnected-prefix-padding    = 1
-	format-disconnected-prefix-background = ${colors.essid_p_bg}
-	format-disconnected-prefix-foreground = ${colors.modules_prefix_fg}
+	format-disconnected-prefix-background = ${xrdb:color19}
+	format-disconnected-prefix-foreground = ${xrdb:color7}
 
-	label-disconnected            = DISCONNECTED
-	label-disconnected-background = ${colors.essid_p_bg}
-	label-disconnected-foreground = ${colors.modules_fg}
+	label-disconnected            = "DISCONNECTED "
+	label-disconnected-background = ${xrdb:color19}
+	label-disconnected-foreground = ${xrdb:color7}
 	label-disconnected-padding    = 1
 
 
@@ -309,27 +319,27 @@
 
 	label-mode-background = ${colors.modules_bg}
 	label-mode-foreground = ${colors.modules_prefix_fg}
-	label-mode-padding    = 1
+	label-mode-padding    = 2
 
 	label-focused            = %name%
 	label-focused-background = ${colors.focused_bg}
 	label-focused-foreground = ${colors.modules_fg}
-	label-focused-padding    = 1
+	label-focused-padding    = 2
 
 	label-unfocused            = %name%
 	label-unfocused-background = ${colors.modules_bg}
 	label-unfocused-foreground = ${colors.modules_prefix_fg}
-	label-unfocused-padding    = 1
+	label-unfocused-padding    = 2
 
 	label-visible            = %name%
 	label-visible-background = ${colors.modules_bg}
 	label-visible-foreground = ${colors.modules_prefix_fg}
-	label-visible-padding    = 1
+	label-visible-padding    = 2
 
 	label-urgent            = %name%
 	label-urgent-background = ${xrdb:color1}
 	label-urgent-foreground = ${colors.modules_prefix_bg}
-	label-urgent-padding    = 1
+	label-urgent-padding    = 2
 
 
 [module/openbox]
