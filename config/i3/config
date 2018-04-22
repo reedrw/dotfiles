@@ -118,6 +118,7 @@ bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 # splitting
+bindsym $mod+t split toggle
 bindsym $mod+h split h
 bindsym $mod+v split v
 
@@ -209,7 +210,30 @@ bindsym $mod+F9  workspace $workspace19
 bindsym $mod+F10 workspace $workspace20
 bindsym $mod+F11 workspace $workspace21
 bindsym $mod+F12 workspace $workspace22
-  # }}}
+
+bindsym $sup+1   workspace $workspace1
+bindsym $sup+2   workspace $workspace2
+bindsym $sup+3   workspace $workspace3
+bindsym $sup+4   workspace $workspace4
+bindsym $sup+5   workspace $workspace5
+bindsym $sup+6   workspace $workspace6
+bindsym $sup+7   workspace $workspace7
+bindsym $sup+8   workspace $workspace8
+bindsym $sup+9   workspace $workspace9
+bindsym $sup+0   workspace $workspace10
+bindsym $sup+F1  workspace $workspace11
+bindsym $sup+F2  workspace $workspace12
+bindsym $sup+F3  workspace $workspace13
+bindsym $sup+F4  workspace $workspace14
+bindsym $sup+F5  workspace $workspace15
+bindsym $sup+F6  workspace $workspace16
+bindsym $sup+F7  workspace $workspace17
+bindsym $sup+F8  workspace $workspace18
+bindsym $sup+F9  workspace $workspace19
+bindsym $sup+F10 workspace $workspace20
+bindsym $sup+F11 workspace $workspace21
+bindsym $sup+F12 workspace $workspace22
+# }}}
 
 # Other Keybindings {{{
 bindsym Print        exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png

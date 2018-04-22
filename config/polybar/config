@@ -60,6 +60,7 @@
 	font-0 = WunconSiji:size=4;2
 	font-1 = lemon:pixelsize=10;1
 	font-2 = lemon:pixelsize=10;1
+	font-3 = Kochi Gothic:size=4;1
 
 	modules-left   = music previous playpause next volume
 	modules-center = workspaces
@@ -207,10 +208,10 @@
 
 	format-muted = <label-muted>
 
-	label-muted            = " 0%"
+	label-muted            = " 0"
 	label-muted-foreground = ${xrdb:color7}
 	label-muted-background = ${xrdb:color19}
-	label-muted-padding    = 1
+	label-muted-padding    = 2
 
 	format-volume-padding = 0
 	format-muted-padding  = 0
