@@ -9,6 +9,8 @@
 # Launch bar1 and bar2
 #polybar base &
 
+sleep .5
+
 if ! pgrep -x polybar; then
 	polybar base &
 else
