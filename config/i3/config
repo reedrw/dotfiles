@@ -71,7 +71,7 @@ font pango:scientifica 8
 # Variables {{{
 set $mod Mod1
 set $sup Mod4
-set $terminal tabbed -c urxvt -embed
+set $terminal tabbed -c urxvtc -embed
 set $workspace1  "1"
 set $workspace2  "2"
 set $workspace3  "3"
@@ -245,10 +245,10 @@ bindsym $mod+o       open
 bindsym $mod+Shift+c reload
 # }}}
 
-# Pulse Audio Controls {{{
-bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   0 toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+# alsa Audio Controls {{{
+bindsym XF86AudioMute        exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
 # }}}
 
 # Media Player Controls {{{

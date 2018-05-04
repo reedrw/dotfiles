@@ -45,7 +45,7 @@ userreed(){
 	"${SCRIPTS}/walper.sh" -s
 }
 
-[ -z "${DISPLAY}" ] && [ -n "${XDG_VTNR}" ] && [ "${XDG_VTNR}" -eq 1 ] && exec startx
+[[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && exec startx
 
 ZSH="$HOME/.oh-my-zsh"
 
@@ -86,32 +86,4 @@ alias ls="           exa                                 "
 #}}}
 # Functions{{{
 ldu() { command du -ahLd 1 2> /dev/null | sort -rh | head -n 20 ; }
-rc(){
-	systemctl list-unit-files --type=service |\
-	tail -n+2 |\
-	head -n -2 |\
-	sed \
-	-e 's/.service//g' \
-	-e '/static/d' \
-	-e '/indirect/d' \
-	-e '/systemd/d' \
-	-e '/dbus-org/d' \
-	-e '/canberra/d'\
-	-e '/wpa_supplicant/d' \
-	-e '/netctl/d' \
-	-e '/rfkill/d' \
-	-e '/krb5/d' \
-	-e 's/\(^.*enabled.*$\)/[x] \1/' \
-	-e 's/enabled//g' \
-	-e 's/\(^.*disabled.*$\)/[ ] \1/' \
-	-e 's/disabled//g' \
-	-e 's/[ \t]*$//' |\
-	while read line; do
-			if [[ $line == *'[x]'* ]]; then
-				printf "\033[0;32m$line\n"
-			else
-				printf "\033[1;30m$line\n"
-			fi
-	done
-}
 #}}}
