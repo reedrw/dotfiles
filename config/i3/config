@@ -99,7 +99,7 @@ set $workspace22 "22"
 # Window Movement (excluding workspaces) {{{
 
 # terminals
-bindsym $mod+Return  exec $terminal
+bindsym $mod+Return  exec --no-startup-id $terminal
 bindsym $sup+Return  exec --no-startup-id ~/scripts/selectterm
 
 # kill

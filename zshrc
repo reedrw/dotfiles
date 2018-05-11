@@ -45,12 +45,11 @@ userreed(){
 	"${SCRIPTS}/walper.sh" -s
 }
 
-[[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && exec startx
+[[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && xinit -- :0
 
 ZSH="$HOME/.oh-my-zsh"
 
 EDITOR="vim"
-ZSH_THEME="reed"
 
 [ ${USER} = "root" ] && userroot || userreed
 
@@ -59,6 +58,8 @@ BASE16_SHELL="${HOME}/.config/base16-shell/"
 . "${ZSH}/oh-my-zsh.sh"
 . "${SCRIPTS}/transfer.sh"
 . "${HOME}/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+PS1="%{$fg[magenta]%}%n%{$reset_color%} @ %{$fg[red]%}%\♥ %{$fg[yellow]%}%~ "
 
 test $RANGER_LEVEL && alias ranger="exit"
 
@@ -69,6 +70,7 @@ alias aringa="       ${SCRIPTS}/aringa.sh                "
 alias c="            ${SCRIPTS}/clipboard.sh             "
 alias panes="        ${SCRIPTS}/panes                    "
 alias mp3="          ${SCRIPTS}/mp3.sh                   "
+alias nerdinfo="     ${SCRIPTS}/nerdinfo                 "
 alias qems="         ${SCRIPTS}/qems.sh                  "
 alias qimg="         ${SCRIPTS}/qemuimage.sh             "
 alias screenrecord=" ${SCRIPTS}/screenrecord.sh          "

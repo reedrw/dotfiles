@@ -41,7 +41,7 @@
 	offset-x = 0
 	offset-y = 0
 
-	bottom = true
+	bottom = false
 
 	background = ${xrdb:color0}
 	foreground = ${xrdb:color7}
@@ -60,7 +60,7 @@
 
 	spacing            = 0
 	padding-left       = 2
-	padding-right      = 3
+	padding-right      = 4
 	module-margin-left = 0
 
 	font-N = <fontconfig pattern>;<vertical offset>
@@ -69,9 +69,9 @@
 	font-2 = scientifica:pixelsize=10;1
 	font-3 = Kochi Gothic:size=4;1
 
-	modules-left   = date battery essid volume
-	modules-center = workspaces
-	modules-right  = music previous playpause next
+	modules-left = workspaces
+	modules-center  = previous playpause next music
+	modules-right   = volume battery essid date
 
 	fixed-center = true
 
@@ -212,14 +212,14 @@
 
 	label-volume            = " %percentage%"
 	label-volume-background = ${xrdb:color0}
-	label-volume-foreground = ${xrdb:color4}
+	label-volume-foreground = ${xrdb:color3}
 	label-volume-padding    = 1
 
 	format-muted = <label-muted>
 
 	label-muted            = " 0"
 	label-muted-background = ${xrdb:color0}
-	label-muted-foreground = ${xrdb:color4}
+	label-muted-foreground = ${xrdb:color3}
 	label-muted-padding    = 3
 
 	format-volume-padding = 0
@@ -331,22 +331,22 @@
 	label-mode-foreground = ${xrdb:color0}
 	label-mode-padding    = 2
 
-	label-focused            = ✕
+	label-focused            = %name%
 	label-focused-background = ${xrdb:color0}
 	label-focused-foreground = ${xrdb:color10}
 	label-focused-padding    = 2
 
-	label-unfocused            = •
+	label-unfocused            = %name%
 	label-unfocused-background = ${xrdb:color0}
 	label-unfocused-foreground = ${xrdb:color7}
 	label-unfocused-padding    = 2
 
-	label-visible            = •
+	label-visible            = %name%
 	label-visible-background = ${xrdb:color0}
 	label-visible-foreground = ${xrdb:color7}
 	label-visible-padding    = 2
 
-	label-urgent            = •
+	label-urgent            = %name%
 	label-urgent-background = ${xrdb:color0}
 	label-urgent-foreground = ${xrdb:color1}
 	label-urgent-padding    = 2
