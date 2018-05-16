@@ -37,30 +37,30 @@
 [bar/base]
 	dpi      = 192
 	width    = 100%
-	height   = 34
+	height   = 24
 	offset-x = 0
 	offset-y = 0
 
 	bottom = false
 
-	background = ${xrdb:color0}
+	background = #00a0000a
 	foreground = ${xrdb:color7}
 
 	border-bottom-size  = 0
-	border-top-size     = 0
+	border-top-size     = 8
 
 	border-left-size  = 0
 	border-right-size = 0
 
 	border-bottom-color = ${xrdb:color0}
-	border-top-color    = ${xrdb:color0}
+	border-top-color    = #00a0000a
 
 	border-left-color = ${xrdb:color0}
 	border-right-colo = ${xrdb:color0}
 
 	spacing            = 0
 	padding-left       = 2
-	padding-right      = 4
+	padding-right      = 2
 	module-margin-left = 0
 
 	font-N = <fontconfig pattern>;<vertical offset>
@@ -69,9 +69,47 @@
 	font-2 = scientifica:pixelsize=10;1
 	font-3 = Kochi Gothic:size=4;1
 
-	modules-left = workspaces
-	modules-center  = previous playpause next music
-	modules-right   = volume battery essid date
+	modules-left    = date
+	modules-right   = workspaces
+
+	fixed-center = true
+
+[bar/bottom]
+	dpi      = 192
+	width    = 100%
+	height   = 24
+	offset-x = 0
+	offset-y = 0
+
+	bottom = true
+
+	background = #00a0000a
+	foreground = ${xrdb:color7}
+
+	border-bottom-size  = 4
+	border-top-size     = 0
+
+	border-left-size  = 0
+	border-right-size = 0
+
+	border-bottom-color = #00a0000a
+	border-top-color    = #00a0000a
+
+	border-left-color = ${xrdb:color0}
+	border-right-colo = ${xrdb:color0}
+
+	spacing            = 0
+	padding-left       = 2
+	padding-right      = 2
+	module-margin-left = 0
+
+	font-N = <fontconfig pattern>;<vertical offset>
+	font-0 = WunconSiji:size=4;2
+	font-1 = lemon:pixelsize=10;1
+	font-2 = scientifica:pixelsize=10;1
+	font-3 = Kochi Gothic:size=4;1
+
+	modules-right = battery
 
 	fixed-center = true
 
@@ -94,20 +132,15 @@
 [module/date]
 	type     = internal/date
 	interval = 1.0
-	time     = "%I:%M %p "
-	label    = "%time% "
+	time     = "%I:%M"
+	label    = "%time%"
 
 	format         = <label>
 	format-padding = 0
 
-	format-prefix            = ""
-	format-prefix-background = ${xrdb:color0}
-	format-prefix-foreground = ${xrdb:color2}
-	format-prefix-padding    = 1
-
 	label-background = ${xrdb:color0}
-	label-foreground = ${xrdb:color2}
-	label-padding    = 0
+	label-foreground = ${xrdb:color15}
+	label-padding    = 2
 
 [module/previous]
 	type = custom/text
@@ -170,39 +203,24 @@
 
 	format-charging = <label-charging>
 
-	format-charging-prefix            = " "
-	format-charging-prefix-background = ${xrdb:color0}
-	format-charging-prefix-foreground = ${xrdb:color4}
-	format-charging-prefix-padding    = 1
-
-	label-charging            = "%percentage%% "
+	label-charging            = "%percentage%%"
 	label-charging-background = ${xrdb:color0}
-	label-charging-foreground = ${xrdb:color4}
-	label-charging-padding    = 1
+	label-charging-foreground = ${xrdb:color15}
+	label-charging-padding    = 2
 
 	format-discharging = <label-discharging>
 
-	format-discharging-prefix            = " "
-	format-discharging-prefix-background = ${xrdb:color0}
-	format-discharging-prefix-foreground = ${xrdb:color4}
-	format-discharging-prefix-padding    = 1
-
-	label-discharging            = "%percentage%% "
+	label-discharging            = "%percentage%%"
 	label-discharging-background = ${xrdb:color0}
-	label-discharging-foreground = ${xrdb:color4}
-	label-discharging-padding    = 1
+	label-discharging-foreground = ${xrdb:color15}
+	label-discharging-padding    = 2
 
 	format-full = <label-full>
 
-	format-full-prefix            = " "
-	format-full-prefix-background = ${xrdb:color0}
-	format-full-prefix-foreground = ${xrdb:color4}
-	format-full-prefix-padding    = 1
-
-	label-full            = "%percentage%% "
+	label-full            = "%percentage%%"
 	label-full-background = ${xrdb:color0}
-	label-full-foreground = ${xrdb:color4}
-	label-full-padding    = 1
+	label-full-foreground = ${xrdb:color15}
+	label-full-padding    = 2
 
 [module/volume]
 	type          = internal/volume
@@ -333,21 +351,21 @@
 
 	label-focused            = %name%
 	label-focused-background = ${xrdb:color0}
-	label-focused-foreground = ${xrdb:color10}
+	label-focused-foreground = ${xrdb:color15}
 	label-focused-padding    = 2
 
 	label-unfocused            = %name%
-	label-unfocused-background = ${xrdb:color0}
-	label-unfocused-foreground = ${xrdb:color7}
+	label-unfocused-background = ${xrdb:color15}
+	label-unfocused-foreground = ${xrdb:color0}
 	label-unfocused-padding    = 2
 
 	label-visible            = %name%
-	label-visible-background = ${xrdb:color0}
-	label-visible-foreground = ${xrdb:color7}
+	label-visible-background = ${xrdb:color15}
+	label-visible-foreground = ${xrdb:color0}
 	label-visible-padding    = 2
 
 	label-urgent            = %name%
-	label-urgent-background = ${xrdb:color0}
+	label-urgent-background = ${xrdb:color15}
 	label-urgent-foreground = ${xrdb:color1}
 	label-urgent-padding    = 2
 

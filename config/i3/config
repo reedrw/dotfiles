@@ -152,8 +152,8 @@ bindsym $sup+Shift+Right resize grow   width  1 px or 1 ppt
 # }}}
 
 # Gaps {{{
-gaps inner 15
-gaps outer 10
+gaps inner 10
+gaps outer 0
 
 bindsym $mod+minus       gaps inner all minus 5
 bindsym $mod+plus        gaps inner all plus  5

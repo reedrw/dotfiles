@@ -46,7 +46,7 @@ Xft.lcdfilter: lcddefault
 ! URxvt
 URxvt.perl-ext-common: default,matcher
 URxvt.scrollBar: false
-URxvt.font: xft:scientifica:size=8
+URxvt.font: xft:scientifica:size=8, xft:Kochi Gothic:antialias=false
 URxvt.boldFont: xft:scientifica:size=8
 URxvt.italicFont: xft:scientifica:italic:size=8
 URxvt.cursorUnderline: true
