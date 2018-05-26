@@ -45,7 +45,7 @@ userreed(){
 	"${SCRIPTS}/walper.sh" -s
 }
 
-[[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && xinit -- :0
+[[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && startx
 
 ZSH="${HOME}/.zsh/oh-my-zsh"
 
@@ -54,10 +54,11 @@ EDITOR="vim"
 [ ${USER} = "root" ] && userroot || userreed
 
 . "${HOME}/.zsh/oh-my-zsh/oh-my-zsh.sh"
+. "${HOME}/.zsh/sudo.plugin.zsh"
 . "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 . "${SCRIPTS}/transfer.sh"
 
-PS1="%{$fg[magenta]%}%n%{$reset_color%} @ %{$fg[red]%}%\♥ %{$fg[yellow]%}%~ "
+PS1="%{$fg[magenta]%}%n%{$reset_color%} %{$fg[yellow]%}%~ %{$reset_color%}"
 
 test $RANGER_LEVEL && alias ranger="exit"
 
