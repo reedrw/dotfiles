@@ -58,7 +58,7 @@ EDITOR="vim"
 . "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 . "${SCRIPTS}/transfer.sh"
 
-PS1="%{$fg[magenta]%}%n%{$reset_color%} %{$fg[yellow]%}%~ %{$reset_color%}"
+PS1="%{$fg[magenta]%}%n%{$reset_color%} @ %{$fg[red]%}%\♥ %{$fg[yellow]%}%~ %{$reset_color%}"
 
 test $RANGER_LEVEL && alias ranger="exit"
 

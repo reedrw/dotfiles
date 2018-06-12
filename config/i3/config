@@ -60,8 +60,8 @@ client.focused_inactive $base03 $base03 $base05 $base03
 client.unfocused        $base03 $base03 $base05 $base00
 client.urgent           $base01 $base01 $base05 $base00
 
-new_window pixel 4
-new_float  pixel 4
+new_window pixel 3
+new_float  pixel 3
 
 for_window [class="URxvt"] floating enable
 
@@ -152,7 +152,7 @@ bindsym $sup+Shift+Right resize grow   width  1 px or 1 ppt
 # }}}
 
 # Gaps {{{
-gaps inner 10
+gaps inner 15
 gaps outer 0
 
 bindsym $mod+minus       gaps inner all minus 5

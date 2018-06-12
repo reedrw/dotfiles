@@ -59,13 +59,13 @@
 	border-right-colo = ${xrdb:color0}
 
 	spacing            = 0
-	padding-left       = 1
-	padding-right      = 1
+	padding-left       = 2
+	padding-right      = 4
 	module-margin-left = 0
 
 	font-N = <fontconfig pattern>;<vertical offset>
 	font-0 = WunconSiji:size=4;2
-	font-1 = Victoria:style=Sans Bold Bold:pixelsize=10;1
+	font-1 = lemon:pixelsize=10;1
 	font-2 = scientifica:pixelsize=10;1
 	font-3 = Kochi Gothic:size=4;1
 
@@ -329,27 +329,27 @@
 
 	label-mode-background = ${xrdb:color7}
 	label-mode-foreground = ${xrdb:color0}
-	label-mode-padding    = 1
+	label-mode-padding    = 2
 
 	label-focused            = %name%
 	label-focused-background = ${xrdb:color0}
 	label-focused-foreground = ${xrdb:color10}
-	label-focused-padding    = 1
+	label-focused-padding    = 2
 
 	label-unfocused            = %name%
 	label-unfocused-background = ${xrdb:color0}
 	label-unfocused-foreground = ${xrdb:color7}
-	label-unfocused-padding    = 1
+	label-unfocused-padding    = 2
 
 	label-visible            = %name%
 	label-visible-background = ${xrdb:color0}
 	label-visible-foreground = ${xrdb:color7}
-	label-visible-padding    = 1
+	label-visible-padding    = 2
 
 	label-urgent            = %name%
 	label-urgent-background = ${xrdb:color0}
 	label-urgent-foreground = ${xrdb:color1}
-	label-urgent-padding    = 1
+	label-urgent-padding    = 2
 
 
 [module/openbox]
