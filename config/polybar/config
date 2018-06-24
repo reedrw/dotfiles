@@ -37,22 +37,22 @@
 [bar/base]
 	dpi      = 192
 	width    = 100%
-	height   = 34
+	height   = 32
 	offset-x = 0
 	offset-y = 0
 
-	bottom = false
+	bottom = true
 
-	background = ${xrdb:color0}
+	background = #000f0f0f
 	foreground = ${xrdb:color7}
 
-	border-bottom-size  = 0
+	border-bottom-size  = 8
 	border-top-size     = 0
 
 	border-left-size  = 0
 	border-right-size = 0
 
-	border-bottom-color = ${xrdb:color0}
+	border-bottom-color = #000f0f0f
 	border-top-color    = ${xrdb:color0}
 
 	border-left-color = ${xrdb:color0}
@@ -69,9 +69,9 @@
 	font-2 = scientifica:pixelsize=10;1
 	font-3 = Kochi Gothic:size=4;1
 
-	modules-left = workspaces
-	modules-center  = previous playpause next music
-	modules-right   = volume battery essid date
+	modules-left = date battery paddinglite previous playpause next music
+	modules-center  =
+	modules-right   = workspaces
 
 	fixed-center = true
 
@@ -94,30 +94,25 @@
 [module/date]
 	type     = internal/date
 	interval = 1.0
-	time     = "%I:%M %p "
-	label    = "%time% "
+	time     = "%I:%M %p"
+	label    = "%time%"
 
 	format         = <label>
 	format-padding = 0
 
-	format-prefix            = ""
-	format-prefix-background = ${xrdb:color0}
-	format-prefix-foreground = ${xrdb:color2}
-	format-prefix-padding    = 1
-
-	label-background = ${xrdb:color0}
-	label-foreground = ${xrdb:color2}
-	label-padding    = 0
+	label-background = ${xrdb:color4}
+	label-foreground = ${xrdb:color0}
+	label-padding    = 3
 
 [module/previous]
 	type = custom/text
 
-	content = ""
-	content-background = ${xrdb:color0}
-	content-foreground = ${xrdb:color2}
+	content = " "
+	content-background = ${xrdb:color2}
+	content-foreground = ${xrdb:color0}
 	content-padding = 1
 
-	click-left = mpc previous
+	click-left = mpc prev
 
 [module/playpause]
 	type = custom/script
@@ -127,8 +122,8 @@
 	interval= 1
 
 	label = %output%
-	label-background = ${xrdb:color0}
-	label-foreground = ${xrdb:color2}
+	label-background = ${xrdb:color2}
+	label-foreground = ${xrdb:color0}
 	label-padding = 1
 
 	click-left = mpc toggle
@@ -136,10 +131,10 @@
 [module/next]
 	type = custom/text
 
-	content = ""
+	content = " "
 
-	content-background = ${xrdb:color0}
-	content-foreground = ${xrdb:color2}
+	content-background = ${xrdb:color2}
+	content-foreground = ${xrdb:color0}
 	content-padding = 1
 
 	click-left = mpc next
@@ -155,7 +150,7 @@
 	format-online = <label-song>
 
 	label-song         = "%artist% - %title% "
-	label-song-padding = 2
+	label-song-padding = 3
 	label-song-background = ${xrdb:color0}
 	label-song-foreground = ${xrdb:color7}
 
@@ -170,38 +165,35 @@
 
 	format-charging = <label-charging>
 
-	format-charging-prefix            = " "
-	format-charging-prefix-background = ${xrdb:color0}
-	format-charging-prefix-foreground = ${xrdb:color4}
-	format-charging-prefix-padding    = 1
+	format-charging-prefix = "   "
+	format-charging-foreground = ${xrdb:color4}
+	format-charging-background = ${xrdb:color0}
 
-	label-charging            = "%percentage%% "
+	label-charging            = "%percentage%%   "
 	label-charging-background = ${xrdb:color0}
-	label-charging-foreground = ${xrdb:color4}
+	label-charging-foreground = ${xrdb:color7}
 	label-charging-padding    = 1
 
 	format-discharging = <label-discharging>
 
-	format-discharging-prefix            = " "
-	format-discharging-prefix-background = ${xrdb:color0}
+	format-discharging-prefix = "   "
 	format-discharging-prefix-foreground = ${xrdb:color4}
-	format-discharging-prefix-padding    = 1
+	format-discharging-prefix-background = ${xrdb:color0}
 
-	label-discharging            = "%percentage%% "
+	label-discharging            = "%percentage%%   "
 	label-discharging-background = ${xrdb:color0}
-	label-discharging-foreground = ${xrdb:color4}
+	label-discharging-foreground = ${xrdb:color7}
 	label-discharging-padding    = 1
 
 	format-full = <label-full>
 
-	format-full-prefix            = " "
-	format-full-prefix-background = ${xrdb:color0}
+	format-full-prefix = "   "
 	format-full-prefix-foreground = ${xrdb:color4}
-	format-full-prefix-padding    = 1
+	format-full-prefix-background = ${xrdb:color0}
 
-	label-full            = "%percentage%% "
+	label-full            = "%percentage%%   "
 	label-full-background = ${xrdb:color0}
-	label-full-foreground = ${xrdb:color4}
+	label-full-foreground = ${xrdb:color7}
 	label-full-padding    = 1
 
 [module/volume]
@@ -264,15 +256,17 @@
 
 	format-connected = <label-connected>
 
-	format-connected-prefix            = " "
-	format-connected-prefix-padding    = 1
-	format-connected-prefix-background = ${xrdb:color0}
-	format-connected-prefix-foreground = ${xrdb:color5}
+	format-connected-prefix              = ""
+	format-connected-prefix-padding      = 1
+	format-connected-prefix-padding-left = 1
+	format-connected-prefix-background   = ${xrdb:color0}
+	format-connected-prefix-foreground   = ${xrdb:color5}
 
-	label-connected            = "%essid% "
-	label-connected-background = ${xrdb:color0}
-	label-connected-foreground = ${xrdb:color5}
-	label-connected-padding    = 1
+	label-connected               = "%essid%"
+	label-connected-background    = ${xrdb:color0}
+	label-connected-foreground    = ${xrdb:color5}
+	label-connected-padding       = 1
+	label-connected-padding-right = 1
 
 	ramp-signal-background    = ${xrdb:color0}
 	ramp-signal-foreground    = ${xrdb:color5}
@@ -281,15 +275,17 @@
 
 	format-disconnected = <label-disconnected>
 
-	format-disconnected-prefix            = " "
-	format-disconnected-prefix-padding    = 1
-	format-disconnected-prefix-background = ${xrdb:color0}
-	format-disconnected-prefix-foreground = ${xrdb:color7}
+	format-disconnected-prefix              = ""
+	format-disconnected-prefix-padding      = 1
+	format-disconnected-prefix-padding-left = 1
+	format-disconnected-prefix-background   = ${xrdb:color0}
+	format-disconnected-prefix-foreground   = ${xrdb:color7}
 
-	label-disconnected            = "DISCONNECTED "
-	label-disconnected-background = ${xrdb:color0}
-	label-disconnected-foreground = ${xrdb:color7}
-	label-disconnected-padding    = 1
+	label-disconnected               = "DISCONNECTED"
+	label-disconnected-background    = ${xrdb:color0}
+	label-disconnected-foreground    = ${xrdb:color7}
+	label-disconnected-padding       = 1
+	label-disconnected-padding-right = 1
 
 
 [module/down]
@@ -315,7 +311,7 @@
 
 [module/paddinglite]
 	type               = custom/text
-	content            = |
+	content            = ||
 	content-foreground = #000f0f0f
 	content-background = #000f0f0f
 
@@ -327,29 +323,29 @@
 	wrapping-scroll = false
 	strip-wsnumbers = true
 
-	label-mode-background = ${xrdb:color7}
-	label-mode-foreground = ${xrdb:color0}
-	label-mode-padding    = 2
+	label-mode-background = ${xrdb:color0}
+	label-mode-foreground = ${xrdb:color7}
+	label-mode-padding    = 3
 
 	label-focused            = %name%
-	label-focused-background = ${xrdb:color0}
-	label-focused-foreground = ${xrdb:color10}
-	label-focused-padding    = 2
+	label-focused-background = ${xrdb:color3}
+	label-focused-foreground = ${xrdb:color0}
+	label-focused-padding    = 3
 
 	label-unfocused            = %name%
 	label-unfocused-background = ${xrdb:color0}
 	label-unfocused-foreground = ${xrdb:color7}
-	label-unfocused-padding    = 2
+	label-unfocused-padding    = 3
 
 	label-visible            = %name%
 	label-visible-background = ${xrdb:color0}
 	label-visible-foreground = ${xrdb:color7}
-	label-visible-padding    = 2
+	label-visible-padding    = 3
 
 	label-urgent            = %name%
 	label-urgent-background = ${xrdb:color0}
-	label-urgent-foreground = ${xrdb:color1}
-	label-urgent-padding    = 2
+	label-urgent-foreground = ${xrdb:color7}
+	label-urgent-padding    = 3
 
 
 [module/openbox]
