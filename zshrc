@@ -81,5 +81,6 @@ alias sep="          bg; disown; exit"
 alias x="            exit"
 #}}}
 # Functions{{{
-ldu() { command du -ahLd 1 2> /dev/null | sort -rh | head -n 20 ; }
+ldu() { command du -ahLd 1 2> /dev/null | sort -rh }
+0x0() { curl -F"file=@$1" https://0x0.st }
 #}}}

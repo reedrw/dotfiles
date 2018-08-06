@@ -37,16 +37,16 @@
 [bar/base]
 	dpi      = 192
 	width    = 100%
-	height   = 32
+	height   = 22
 	offset-x = 0
 	offset-y = 0
 
 	bottom = true
 
-	background = #000f0f0f
+	background = ${xrdb:color0}
 	foreground = ${xrdb:color7}
 
-	border-bottom-size  = 8
+	border-bottom-size  = 0
 	border-top-size     = 0
 
 	border-left-size  = 0
@@ -59,19 +59,18 @@
 	border-right-colo = ${xrdb:color0}
 
 	spacing            = 0
-	padding-left       = 2
-	padding-right      = 4
+	padding-left       = 0
+	padding-right      = 1
 	module-margin-left = 0
 
 	font-N = <fontconfig pattern>;<vertical offset>
 	font-0 = WunconSiji:size=4;2
-	font-1 = lemon:pixelsize=10;1
-	font-2 = scientifica:pixelsize=10;1
-	font-3 = Kochi Gothic:size=4;1
+	font-1 = scientifica:pixelsize=10;1
+	font-2 = Kochi Gothic:size=4;1
 
-	modules-left = date battery paddinglite previous playpause next music
-	modules-center  =
-	modules-right   = workspaces
+	modules-left = battery volume xwindow
+	modules-center   = workspaces
+	modules-right   = music date
 
 	fixed-center = true
 
@@ -89,28 +88,28 @@
 	type          = internal/xwindow
 	format        = <label>
 	label         = %title:0:50:%
-	label-padding = 1
+	label-padding = 3
 
 [module/date]
 	type     = internal/date
 	interval = 1.0
-	time     = "%I:%M %p"
+	time     = "| %A %d %B, %I:%M %p "
 	label    = "%time%"
 
 	format         = <label>
 	format-padding = 0
 
-	label-background = ${xrdb:color4}
-	label-foreground = ${xrdb:color0}
-	label-padding    = 3
+	label-background = ${xrdb:color0}
+	label-foreground = ${xrdb:color7}
+	label-padding    = 1
 
 [module/previous]
 	type = custom/text
 
 	content = " "
-	content-background = ${xrdb:color2}
-	content-foreground = ${xrdb:color0}
-	content-padding = 1
+	content-background = ${xrdb:color0}
+	content-foreground = ${xrdb:color7}
+	content-padding = 0
 
 	click-left = mpc prev
 
@@ -122,8 +121,8 @@
 	interval= 1
 
 	label = %output%
-	label-background = ${xrdb:color2}
-	label-foreground = ${xrdb:color0}
+	label-background = ${xrdb:color0}
+	label-foreground = ${xrdb:color7}
 	label-padding = 1
 
 	click-left = mpc toggle
@@ -133,9 +132,9 @@
 
 	content = " "
 
-	content-background = ${xrdb:color2}
-	content-foreground = ${xrdb:color0}
-	content-padding = 1
+	content-background = ${xrdb:color0}
+	content-foreground = ${xrdb:color7}
+	content-padding = 0
 
 	click-left = mpc next
 
@@ -150,7 +149,7 @@
 	format-online = <label-song>
 
 	label-song         = "%artist% - %title% "
-	label-song-padding = 3
+	label-song-padding = 1
 	label-song-background = ${xrdb:color0}
 	label-song-foreground = ${xrdb:color7}
 
@@ -165,36 +164,24 @@
 
 	format-charging = <label-charging>
 
-	format-charging-prefix = "   "
-	format-charging-foreground = ${xrdb:color4}
-	format-charging-background = ${xrdb:color0}
-
-	label-charging            = "%percentage%%   "
+	label-charging            = "%percentage%%"
 	label-charging-background = ${xrdb:color0}
 	label-charging-foreground = ${xrdb:color7}
-	label-charging-padding    = 1
+	label-charging-padding    = 2
 
 	format-discharging = <label-discharging>
 
-	format-discharging-prefix = "   "
-	format-discharging-prefix-foreground = ${xrdb:color4}
-	format-discharging-prefix-background = ${xrdb:color0}
-
-	label-discharging            = "%percentage%%   "
+	label-discharging            = "%percentage%%"
 	label-discharging-background = ${xrdb:color0}
 	label-discharging-foreground = ${xrdb:color7}
-	label-discharging-padding    = 1
+	label-discharging-padding    = 2
 
 	format-full = <label-full>
 
-	format-full-prefix = "   "
-	format-full-prefix-foreground = ${xrdb:color4}
-	format-full-prefix-background = ${xrdb:color0}
-
-	label-full            = "%percentage%%   "
+	label-full            = "%percentage%%"
 	label-full-background = ${xrdb:color0}
 	label-full-foreground = ${xrdb:color7}
-	label-full-padding    = 1
+	label-full-padding    = 2
 
 [module/volume]
 	type          = internal/volume
@@ -202,16 +189,16 @@
 
 	mapped = true
 
-	label-volume            = " %percentage%"
+	label-volume            = "%percentage%%"
 	label-volume-background = ${xrdb:color0}
-	label-volume-foreground = ${xrdb:color3}
+	label-volume-foreground = ${xrdb:color7}
 	label-volume-padding    = 1
 
 	format-muted = <label-muted>
 
-	label-muted            = " 0"
+	label-muted            = "0%"
 	label-muted-background = ${xrdb:color0}
-	label-muted-foreground = ${xrdb:color3}
+	label-muted-foreground = ${xrdb:color7}
 	label-muted-padding    = 3
 
 	format-volume-padding = 0
@@ -325,27 +312,27 @@
 
 	label-mode-background = ${xrdb:color0}
 	label-mode-foreground = ${xrdb:color7}
-	label-mode-padding    = 3
+	label-mode-padding    = 1
 
-	label-focused            = %name%
-	label-focused-background = ${xrdb:color3}
-	label-focused-foreground = ${xrdb:color0}
-	label-focused-padding    = 3
+	label-focused            = ×
+	label-focused-background = ${xrdb:color0}
+	label-focused-foreground = ${xrdb:color7}
+	label-focused-padding    = 1
 
-	label-unfocused            = %name%
+	label-unfocused            = •
 	label-unfocused-background = ${xrdb:color0}
 	label-unfocused-foreground = ${xrdb:color7}
-	label-unfocused-padding    = 3
+	label-unfocused-padding    = 1
 
 	label-visible            = %name%
 	label-visible-background = ${xrdb:color0}
 	label-visible-foreground = ${xrdb:color7}
-	label-visible-padding    = 3
+	label-visible-padding    = 1
 
-	label-urgent            = %name%
-	label-urgent-background = ${xrdb:color0}
-	label-urgent-foreground = ${xrdb:color7}
-	label-urgent-padding    = 3
+	label-urgent            = •
+	label-urgent-background = ${xrdb:color7}
+	label-urgent-foreground = ${xrdb:color1}
+	label-urgent-padding    = 1
 
 
 [module/openbox]
