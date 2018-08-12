@@ -67,7 +67,6 @@
 	# Defines color of the frame around the notification window.
 
 	# Define a color for the separator.
-	frame_color = "#16130f"
 	# possible values are:
 	#  * auto: dunst tries to find a color fitting to the background;
 	#  * foreground: use the same color as the foreground;
@@ -320,16 +319,3 @@
 #	summary = *twitter.com*
 #	urgency = normal
 #
-[urgency_low]
-	background = "#16130f"
-	foreground = "#a39a90"
-	timeout = 4
-[urgency_normal]
-	background = "#16130f"
-	foreground = "#a39a90"
-	timeout = 4
-[urgency_critical]
-	background = "#16130f"
-	foreground = "#a39a90"
-	frame_color="#826d57"
-	timeout = 0

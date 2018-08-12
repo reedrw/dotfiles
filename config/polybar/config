@@ -149,11 +149,11 @@
 	format-online = <label-song>
 
 	label-song         = "%artist% - %title% "
-	label-song-padding = 1
+	label-song-padding = 0
 	label-song-background = ${xrdb:color0}
 	label-song-foreground = ${xrdb:color7}
 
-	format-online-prefix-padding = 1
+	format-online-prefix-padding = 0
 
 [module/battery]
 	type          = internal/battery

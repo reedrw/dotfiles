@@ -43,6 +43,8 @@ userroot(){
 userreed(){
 	SCRIPTS="${HOME}/scripts"
 	"${SCRIPTS}/walper.sh" -s
+	alias emerge="sudo emerge"
+	alias dispatch-conf="sudo dispatch-conf"
 }
 
 [[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && startx
@@ -50,6 +52,8 @@ userreed(){
 ZSH="${HOME}/.zsh/oh-my-zsh"
 
 EDITOR="vim"
+
+ZSH_DISABLE_COMPFIX="true"
 
 [ ${USER} = "root" ] && userroot || userreed
 
