@@ -1,39 +1,4 @@
 # vim:filetype=i3
-#┌──────────────────────────────────────┐
-#│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
-#│▒▒▒▒▒┌────────┐░▒▒▒▒┌──────────────┐░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒│▓▒▒▒▒▒▒▒▒▒▒▒▒▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒└───────────┐▓▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│▓▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│▓▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒┌───────────┘▓▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒│▓▒▒▒▒▒▒▒▒▒▒▒▒▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒│▓▒▒▒▒▒▒▒▒▒▒▒▒▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒└───────────┐▓▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│▓▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│▓▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒┌───────────┘▓▒│░▒│
-#│▒▒▒▒▒│▓▒▒▒▒▒▒▒│░▒▒▒▒│▓▒▒▒▒▒▒▒▒▒▒▒▒▒│░▒│
-#│▒▒▒▒▒└────────┘░▒▒▒▒└──────────────┘░▒│
-#│▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
-#└──┐▓▒▒┌─┐▓▒▒▒▒▒▒▒┌──┐▓▒▒┌─────┐▓▒▒▒┌──┘
-#   │▓▒┌┘ │▓▒▒┌─┐▒▒│  │▓▒▒│     │▓┌──┘
-#   │▓┌┘  │┌─┐│ │▓▒│  │▓▒▒│     │▓│
-#   │▓│   ││ ││ │▓▒│  │▓▒▒│     └─┘
-#   │▓│   └┘ ││ └──┘  │▓▒▒│     ┌─┐
-#   │▓│   ┌┐ ││ ┌──┐  ├─┐▓│     │▒│
-#   │▓│   ││ ││ │▒▒│  │▒│▓│     └─┘
-#   ├─┘   ││ ││ │▒▒│  ├─┤▓│
-#         ├┤ └┘ │▒┌┘  │ └─┤
-#   │     │     │▒│
-#   │     ││    │▒│   │   │
-#   │           │▒│
-#         │     └─┘       │
-#   │
-#         │      ▒
-#
-#                ▒
-
 # Colors and Customization {{{
 exec --no-startup-id ~/scripts/16script/16script.sh $( cat ~/.cache/16script/lastuse )
 
@@ -63,7 +28,7 @@ client.urgent           $base01 $base01 $base05 $base00
 new_window pixel 5
 new_float  pixel 5
 
-for_window [class="URxvt"] floating enable
+for_window [class="URxvt" instance="float"] floating enable
 
 font pango:scientifica 8
 # }}}
@@ -71,7 +36,7 @@ font pango:scientifica 8
 # Variables {{{
 set $mod Mod1
 set $sup Mod4
-set $terminal tabbed -c urxvtc -embed
+set $terminal urxvtc
 set $workspace1  "1"
 set $workspace2  "2"
 set $workspace3  "3"
@@ -236,7 +201,7 @@ bindsym $sup+F12 workspace $workspace22
 # }}}
 
 # Other Keybindings {{{
-bindsym Print        exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
+bindsym Print        exec --no-startup-id flameshot gui
 bindsym $mod+r       exec --no-startup-id ~/scripts/record
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
@@ -245,10 +210,20 @@ bindsym $mod+o       open
 bindsym $mod+Shift+c reload
 # }}}
 
+# Backlight Controls {{{
+bindsym Control+Break     exec --no-startup-id sudo /home/reed/scripts/backlight.sh up
+bindsym Control+BackSpace exec --no-startup-id sudo /home/reed/scripts/backlight.sh down
+# }}}
+
 # alsa Audio Controls {{{
 bindsym XF86AudioMute        exec --no-startup-id amixer set Master toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -M set Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -M set Master 5%+
+
+bindsym Control+Escape exec --no-startup-id amixer set Master toggle
+bindsym Control+F1     exec --no-startup-id amixer -M set Master 5%-
+bindsym Control+F2     exec --no-startup-id amixer -M set Master 5%+
+bindsym Control+F3     exec --no-startup-id amixer -M set Master 5%+
 # }}}
 
 # Media Player Controls {{{
@@ -256,12 +231,20 @@ bindsym XF86AudioStop exec --no-startup-id mpc clear && /home/reed/scripts/killm
 bindsym XF86AudioNext exec --no-startup-id mpc next
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioPrev exec --no-startup-id mpc prev
+
+bindsym Control+Up    exec --no-startup-id mpc clear && /home/reed/scripts/killm.sh ncmpcpp
+bindsym Control+Right exec --no-startup-id mpc next
+bindsym Control+Down  exec --no-startup-id mpc toggle
+bindsym Control+Left  exec --no-startup-id mpc prev
+
 # }}}
 
 # Autostart {{{
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec        --no-startup-id ~/scripts/walper.sh -e
+exec        --no-startup-id [[ -e ~/.background/color ]] && hsetroot -solid "$(< ~/.background/color)"
 exec        --no-startup-id xset r rate 280 40
+exec        --no-startup-id unclutter
 exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst

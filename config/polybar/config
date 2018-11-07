@@ -41,36 +41,36 @@
 	offset-x = 0
 	offset-y = 0
 
-	bottom = true
+	bottom = false
 
 	background = ${xrdb:color0}
 	foreground = ${xrdb:color7}
 
 	border-bottom-size  = 0
-	border-top-size     = 0
+	border-top-size     = 10
 
-	border-left-size  = 0
-	border-right-size = 0
+	border-left-size  = 300
+	border-right-size = 300
 
 	border-bottom-color = #000f0f0f
-	border-top-color    = ${xrdb:color0}
+	border-top-color    = #000f0f0f
 
-	border-left-color = ${xrdb:color0}
-	border-right-colo = ${xrdb:color0}
+	border-left-color  = #000f0f0f
+	border-right-color = #000f0f0f
 
 	spacing            = 0
 	padding-left       = 0
-	padding-right      = 1
+	padding-right      = 0
 	module-margin-left = 0
 
 	font-N = <fontconfig pattern>;<vertical offset>
 	font-0 = WunconSiji:size=4;2
-	font-1 = scientifica:pixelsize=10;1
+	font-1 = lemon:pixelsize=10;1
 	font-2 = Kochi Gothic:size=4;1
 
-	modules-left = battery volume xwindow
-	modules-center   = workspaces
-	modules-right   = music date
+	modules-left   = battery volume xwindow
+	modules-center = workspaces
+	modules-right  = music date
 
 	fixed-center = true
 
@@ -93,7 +93,7 @@
 [module/date]
 	type     = internal/date
 	interval = 1.0
-	time     = "| %A %d %B, %I:%M %p "
+	time     = "| %a %H:%M "
 	label    = "%time%"
 
 	format         = <label>
@@ -196,10 +196,10 @@
 
 	format-muted = <label-muted>
 
-	label-muted            = "0%"
+	label-muted            = "0% (muted)"
 	label-muted-background = ${xrdb:color0}
 	label-muted-foreground = ${xrdb:color7}
-	label-muted-padding    = 3
+	label-muted-padding    = 1
 
 	format-volume-padding = 0
 	format-muted-padding  = 0
@@ -299,6 +299,7 @@
 [module/paddinglite]
 	type               = custom/text
 	content            = ||
+	content-padding    = 30
 	content-foreground = #000f0f0f
 	content-background = #000f0f0f
 
@@ -314,12 +315,12 @@
 	label-mode-foreground = ${xrdb:color7}
 	label-mode-padding    = 1
 
-	label-focused            = ×
+	label-focused            = -
 	label-focused-background = ${xrdb:color0}
-	label-focused-foreground = ${xrdb:color7}
+	label-focused-foreground = ${xrdb:color2}
 	label-focused-padding    = 1
 
-	label-unfocused            = •
+	label-unfocused            = -
 	label-unfocused-background = ${xrdb:color0}
 	label-unfocused-foreground = ${xrdb:color7}
 	label-unfocused-padding    = 1

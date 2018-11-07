@@ -43,8 +43,11 @@ userroot(){
 userreed(){
 	SCRIPTS="${HOME}/scripts"
 	"${SCRIPTS}/walper.sh" -s
-	alias emerge="sudo emerge"
-	alias dispatch-conf="sudo dispatch-conf"
+
+	sucom=(dispatch-conf emaint emerge eselect layman poweroff reboot)
+	for command in "${sucom[@]}"; do
+		alias $command="sudo $command"
+	done
 }
 
 [[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && startx
@@ -68,7 +71,15 @@ test $RANGER_LEVEL && alias ranger="exit"
 
 sh -c '(rm -rf ${HOME}/*.core ${HOME}/Desktop ${HOME}/Downloads ${HOME}/nohup.out ${HOME}/*.hup > /dev/null 2>&1 &)'
 
-# Aliases{{{
+
+for oct in {0..511}; do
+	printf "%o\n" $oct
+done | for oct0 in $(</dev/stdin); do
+	printf "%03d\n" $oct0
+done | for oct1 in $(</dev/stdin); do
+	alias $oct1="chmod $oct1";
+done
+
 alias aringa="       ${SCRIPTS}/aringa.sh"
 alias c="            ${SCRIPTS}/clipboard.sh"
 alias mp3="          ${SCRIPTS}/mp3.sh"
@@ -83,8 +94,6 @@ alias ls="           exa"
 alias open="         xdg-open"
 alias sep="          bg; disown; exit"
 alias x="            exit"
-#}}}
-# Functions{{{
+
 ldu() { command du -ahLd 1 2> /dev/null | sort -rh }
 0x0() { curl -F"file=@$1" https://0x0.st }
-#}}}
