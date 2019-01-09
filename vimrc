@@ -39,6 +39,7 @@ set title
 set nu
 set relativenumber
 set hidden
+set nohlsearch
 set mouse=a
 set tabstop=4
 set noshowmode

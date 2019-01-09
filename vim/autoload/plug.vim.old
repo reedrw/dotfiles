@@ -193,6 +193,14 @@ function! s:ask_no_interrupt(...)
   endtry
 endfunction
 
+function! s:lazy(plug, opt)
+  return has_key(a:plug, a:opt) &&
+        \ (empty(s:to_a(a:plug[a:opt]))         ||
+        \  !isdirectory(a:plug.dir)             ||
+        \  len(s:glob(s:rtp(a:plug), 'plugin')) ||
+        \  len(s:glob(s:rtp(a:plug), 'after/plugin')))
+endfunction
+
 function! plug#end()
   if !exists('g:plugs')
     return s:err('Call plug#begin() first')
@@ -214,7 +222,7 @@ function! plug#end()
       continue
     endif
     let plug = g:plugs[name]
-    if get(s:loaded, name, 0) || !has_key(plug, 'on') && !has_key(plug, 'for')
+    if get(s:loaded, name, 0) || !s:lazy(plug, 'on') && !s:lazy(plug, 'for')
       let s:loaded[name] = 1
       continue
     endif
@@ -1011,6 +1019,8 @@ function! s:update_impl(pull, force, args) abort
     let s:clone_opt .= ' -c core.eol=lf -c core.autocrlf=input'
   endif
 
+  let s:submodule_opt = s:git_version_requirement(2, 8) ? ' --jobs='.threads : ''
+
   " Python version requirement (>= 2.7)
   if python && !has('python3') && !ruby && !use_job && s:update.threads > 1
     redir => pyv
@@ -1102,7 +1112,7 @@ function! s:update_finish()
       if !v:shell_error && filereadable(spec.dir.'/.gitmodules') &&
             \ (s:update.force || has_key(s:update.new, name) || s:is_updated(spec.dir))
         call s:log4(name, 'Updating submodules. This may take a while.')
-        let out .= s:bang('git submodule update --init --recursive 2>&1', spec.dir)
+        let out .= s:bang('git submodule update --init --recursive'.s:submodule_opt.' 2>&1', spec.dir)
       endif
       let msg = s:format_message(v:shell_error ? 'x': '-', name, out)
       if v:shell_error
@@ -1321,7 +1331,7 @@ while 1 " Without TCO, Vim stack is bound to explode
 
   let name = keys(s:update.todo)[0]
   let spec = remove(s:update.todo, name)
-  let new  = !isdirectory(spec.dir)
+  let new  = empty(globpath(spec.dir, '.git', 1))
 
   call s:log(new ? '+' : '*', name, pull ? 'Updating ...' : 'Installing ...')
   redraw

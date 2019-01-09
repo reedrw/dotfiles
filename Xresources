@@ -60,7 +60,7 @@ rofi.ssh-client: ssh
 rofi.ssh-command: {terminal} -e {ssh-client} {host}
 
 ! Clickable URLs
-URxvt.url-launcher: firefox
+URxvt.url-launcher: firefox-bin
 URxvt.matcher.button: 1
 
 ! Use Control-Shift-V/C for X clipboard

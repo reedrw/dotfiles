@@ -1,4 +1,5 @@
 # vim:filetype=i3
+
 # Colors and Customization {{{
 exec --no-startup-id ~/scripts/16script/16script.sh $( cat ~/.cache/16script/lastuse )
 
@@ -198,6 +199,30 @@ bindsym $sup+F9  workspace $workspace19
 bindsym $sup+F10 workspace $workspace20
 bindsym $sup+F11 workspace $workspace21
 bindsym $sup+F12 workspace $workspace22
+
+
+workspace $workspace1  output LVDS-1
+workspace $workspace2  output LVDS-1
+workspace $workspace3  output LVDS-1
+workspace $workspace4  output LVDS-1
+workspace $workspace5  output LVDS-1
+workspace $workspace6  output LVDS-1
+workspace $workspace7  output LVDS-1
+workspace $workspace8  output LVDS-1
+workspace $workspace9  output LVDS-1
+workspace $workspace10 output LVDS-1
+workspace $workspace11 output DP-1
+workspace $workspace12 output DP-1
+workspace $workspace13 output DP-1
+workspace $workspace14 output DP-1
+workspace $workspace15 output DP-1
+workspace $workspace16 output DP-1
+workspace $workspace17 output DP-1
+workspace $workspace18 output DP-1
+workspace $workspace19 output DP-1
+workspace $workspace20 output DP-1
+workspace $workspace21 output DP-1
+workspace $workspace22 output DP-1
 # }}}
 
 # Other Keybindings {{{
@@ -215,15 +240,15 @@ bindsym Control+Break     exec --no-startup-id sudo /home/reed/scripts/backlight
 bindsym Control+BackSpace exec --no-startup-id sudo /home/reed/scripts/backlight.sh down
 # }}}
 
-# alsa Audio Controls {{{
-bindsym XF86AudioMute        exec --no-startup-id amixer set Master toggle
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -M set Master 5%-
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -M set Master 5%+
+# Pulse Audio Controls {{{
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 0 -5%
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 0 +5%
 
-bindsym Control+Escape exec --no-startup-id amixer set Master toggle
-bindsym Control+F1     exec --no-startup-id amixer -M set Master 5%-
-bindsym Control+F2     exec --no-startup-id amixer -M set Master 5%+
-bindsym Control+F3     exec --no-startup-id amixer -M set Master 5%+
+bindsym Control+Escape exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym Control+F0     exec --no-startup-id pactl -- set-sink-volume 0 -5%
+bindsym Control+F2     exec --no-startup-id pactl -- set-sink-volume 0 +5%
+bindsym Control+F3     exec --no-startup-id pactl -- set-sink-volume 0 +5%
 # }}}
 
 # Media Player Controls {{{
