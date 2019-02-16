@@ -37,7 +37,7 @@
 
 	# Shrink window if it's smaller than the width.  Will be ignored if
 	# width is 0.
-	shrink = no
+	shrink = yes
 
 	# The transparency of the window.  Range: [0; 100].
 	# This option will only work if a compositing window manager is
