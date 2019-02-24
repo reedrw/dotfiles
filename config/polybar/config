@@ -369,22 +369,22 @@
 	wrapping-scroll = false
 	strip-wsnumbers = true
 
-	label-mode-background = ${xrdb:color0}
+	label-mode-background = #000f0f0f
 	label-mode-foreground = ${xrdb:color7}
 	label-mode-padding    = 1
 
 	label-focused            = %name%
-	label-focused-background = ${xrdb:color0}
+	label-focused-background = #000f0f0f
 	label-focused-foreground = ${xrdb:color2}
 	label-focused-padding    = 1
 
 	label-unfocused            = %name%
-	label-unfocused-background = ${xrdb:color0}
+	label-unfocused-background = #000f0f0f
 	label-unfocused-foreground = ${xrdb:color7}
 	label-unfocused-padding    = 1
 
 	label-visible            = %name%
-	label-visible-background = ${xrdb:color0}
+	label-visible-background = #000f0f0f
 	label-visible-foreground = ${xrdb:color7}
 	label-visible-padding    = 1
 
