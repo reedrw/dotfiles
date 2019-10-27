@@ -1,4 +1,3 @@
-; vim:ft=cfg
 ;--------------------------------------------
 ; colors                                    ;
 ;--------------------------------------------
@@ -37,20 +36,20 @@
 [bar/base]
 	dpi      = 192
 	width    = 100%
-	height   = 22
+	height   = 32
 	offset-x = 0
 	offset-y = 0
 
 	bottom = false
 
-	background = ${xrdb:color0}
+	background = #000f0f0f
 	foreground = ${xrdb:color7}
 
 	border-bottom-size  = 0
 	border-top-size     = 10
 
-	border-left-size  = 300
-	border-right-size = 300
+	border-left-size  = 0
+	border-right-size = 30
 
 	border-bottom-color = #000f0f0f
 	border-top-color    = #000f0f0f
@@ -64,13 +63,11 @@
 	module-margin-left = 0
 
 	font-N = <fontconfig pattern>;<vertical offset>
-	font-0 = WunconSiji:size=4;2
+	font-0 = Siji:size=4;2
 	font-1 = lemon:pixelsize=10;1
 	font-2 = Kochi Gothic:size=4;1
 
-	modules-left   = battery volume xwindow
-	modules-center = workspaces
-	modules-right  = music date
+	modules-right  = previous playpause next paddinglite workspaces paddinglite battery date
 
 	fixed-center = true
 
@@ -117,22 +114,22 @@
 [module/date]
 	type     = internal/date
 	interval = 1.0
-	time     = "| %a %H:%M "
+	time     = "%I:%M %p"
 	label    = "%time%"
 
 	format         = <label>
 	format-padding = 0
 
-	label-background = ${xrdb:color0}
-	label-foreground = ${xrdb:color7}
-	label-padding    = 1
+	label-background = ${xrdb:color21}
+	label-foreground = ${xrdb:color18}
+	label-padding    = 4
 
 [module/previous]
 	type = custom/text
 
-	content = " "
+	content = "   "
 	content-background = ${xrdb:color0}
-	content-foreground = ${xrdb:color7}
+	content-foreground = ${xrdb:color21}
 	content-padding = 0
 
 	click-left = mpc prev
@@ -142,22 +139,22 @@
 
 	exec = sh ~/.config/polybar/playpause.sh
 
-	interval= 1
+	interval= .5
 
 	label = %output%
 	label-background = ${xrdb:color0}
-	label-foreground = ${xrdb:color7}
-	label-padding = 1
+	label-foreground = ${xrdb:color21}
+	label-padding = 2
 
 	click-left = mpc toggle
 
 [module/next]
 	type = custom/text
 
-	content = " "
+	content = "   "
 
 	content-background = ${xrdb:color0}
-	content-foreground = ${xrdb:color7}
+	content-foreground = ${xrdb:color21}
 	content-padding = 0
 
 	click-left = mpc next
@@ -189,23 +186,23 @@
 	format-charging = <label-charging>
 
 	label-charging            = "%percentage%%"
-	label-charging-background = ${xrdb:color0}
-	label-charging-foreground = ${xrdb:color7}
-	label-charging-padding    = 2
+	label-charging-background = ${xrdb:color7}
+	label-charging-foreground = ${xrdb:color0}
+	label-charging-padding    = 4
 
 	format-discharging = <label-discharging>
 
 	label-discharging            = "%percentage%%"
-	label-discharging-background = ${xrdb:color0}
-	label-discharging-foreground = ${xrdb:color7}
-	label-discharging-padding    = 2
+	label-discharging-background = ${xrdb:color7}
+	label-discharging-foreground = ${xrdb:color0}
+	label-discharging-padding    = 4
 
 	format-full = <label-full>
 
 	label-full            = "%percentage%%"
-	label-full-background = ${xrdb:color0}
-	label-full-foreground = ${xrdb:color7}
-	label-full-padding    = 2
+	label-full-background = ${xrdb:color7}
+	label-full-foreground = ${xrdb:color0}
+	label-full-padding    = 4
 
 [module/volume]
 	type          = internal/pulseaudio
@@ -316,16 +313,17 @@
 
 [module/padding]
 	type               = custom/text
-	content            = |
-	content-foreground = ${colors.bg}
-	content-background = ${colors.bg}
+	content            = ||
+	content-padding    = 1
+	content-foreground = #000f0f0f
+	content-background = #000f0f0f
 
 [module/paddinglite]
 	type               = custom/text
-	content            = ||
-	content-padding    = 30
-	content-foreground = #000f0f0f
-	content-background = #000f0f0f
+	content            = |
+	content-padding    = .5
+	content-foreground = ${xrdb:color18}
+	content-background = ${xrdb:color18}
 
 [module/workspaces]
 
@@ -335,27 +333,27 @@
 	wrapping-scroll = false
 	strip-wsnumbers = true
 
-	label-mode-background = ${xrdb:color0}
+	label-mode-background = ${xrdb:color18}
 	label-mode-foreground = ${xrdb:color7}
 	label-mode-padding    = 1
 
-	label-focused            = -
-	label-focused-background = ${xrdb:color0}
-	label-focused-foreground = ${xrdb:color2}
+	label-focused            = +
+	label-focused-background = ${xrdb:color18}
+	label-focused-foreground = ${xrdb:color3}
 	label-focused-padding    = 1
 
 	label-unfocused            = -
-	label-unfocused-background = ${xrdb:color0}
-	label-unfocused-foreground = ${xrdb:color7}
+	label-unfocused-background = ${xrdb:color18}
+	label-unfocused-foreground = ${xrdb:color8}
 	label-unfocused-padding    = 1
 
 	label-visible            = -
-	label-visible-background = ${xrdb:color0}
+	label-visible-background = ${xrdb:color18}
 	label-visible-foreground = ${xrdb:color7}
 	label-visible-padding    = 1
 
-	label-urgent            = •
-	label-urgent-background = ${xrdb:color7}
+	label-urgent            = -
+	label-urgent-background = ${xrdb:color18}
 	label-urgent-foreground = ${xrdb:color1}
 	label-urgent-padding    = 1
 

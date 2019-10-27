@@ -202,28 +202,28 @@ bindsym $sup+F11 workspace $workspace21
 bindsym $sup+F12 workspace $workspace22
 
 
-workspace $workspace1  output LVDS-1
-workspace $workspace2  output LVDS-1
-workspace $workspace3  output LVDS-1
-workspace $workspace4  output LVDS-1
-workspace $workspace5  output LVDS-1
-workspace $workspace6  output LVDS-1
-workspace $workspace7  output LVDS-1
-workspace $workspace8  output LVDS-1
-workspace $workspace9  output LVDS-1
-workspace $workspace10 output LVDS-1
-workspace $workspace11 output DP-1
-workspace $workspace12 output DP-1
-workspace $workspace13 output DP-1
-workspace $workspace14 output DP-1
-workspace $workspace15 output DP-1
-workspace $workspace16 output DP-1
-workspace $workspace17 output DP-1
-workspace $workspace18 output DP-1
-workspace $workspace19 output DP-1
-workspace $workspace20 output DP-1
-workspace $workspace21 output DP-1
-workspace $workspace22 output DP-1
+workspace $workspace1  output LVDS1
+workspace $workspace2  output LVDS1
+workspace $workspace3  output LVDS1
+workspace $workspace4  output LVDS1
+workspace $workspace5  output LVDS1
+workspace $workspace6  output LVDS1
+workspace $workspace7  output LVDS1
+workspace $workspace8  output LVDS1
+workspace $workspace9  output LVDS1
+workspace $workspace10 output LVDS1
+workspace $workspace11 output DP1
+workspace $workspace12 output DP1
+workspace $workspace13 output DP1
+workspace $workspace14 output DP1
+workspace $workspace15 output DP1
+workspace $workspace16 output DP1
+workspace $workspace17 output DP1
+workspace $workspace18 output DP1
+workspace $workspace19 output DP1
+workspace $workspace20 output DP1
+workspace $workspace21 output DP1
+workspace $workspace22 output DP1
 # }}}
 
 # Other Keybindings {{{
@@ -233,6 +233,7 @@ bindsym $mod+End     exec --no-startup-id ~/scripts/calnotify.sh
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
 bindsym $sup+space   exec --no-startup-id rofi -show run -lines 10 -width 40
+bindsym $mod+k       exec --no-startup-id ~/scripts/selectkill
 bindsym $mod+o       open
 bindsym $mod+Shift+c reload
 # }}}
@@ -267,9 +268,9 @@ bindsym Control+Left  exec --no-startup-id mpc prev
 # }}}
 
 # Autostart {{{
+exec_always --no-startup-id [[ -e ~/.background/color ]] && hsetroot -solid "$(< ~/.background/color)"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec        --no-startup-id ~/scripts/walper.sh -e
-exec        --no-startup-id [[ -e ~/.background/color ]] && hsetroot -solid "$(< ~/.background/color)"
 exec        --no-startup-id xset r rate 280 40
 exec        --no-startup-id unclutter
 exec        --no-startup-id nm-applet
