@@ -7,11 +7,6 @@ setopt autocd correct
 PROMPT="%F{green}%n%f@%m:%f[%F{green}%~%f] $ "
 [[ "$(whoami)" == "root" ]] && PROMPT="%F{red}%n%f@%m:%f[%F{green}%~%f] %F{red}#%f "
 
-if test "$RANGER_LEVEL"; then
-	alias ranger="exit"
-	export PROMPT="%F{red}(RANGER)%f $PROMPT"
-fi
-
 PATH=~/.local/bin:$PATH
 
 [[ -d ~/.local/bin ]] || mkdir -p ~/.local/bin

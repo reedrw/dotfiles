@@ -7,6 +7,11 @@ for command in "${sucom[@]}"; do
 	alias $command="sudo $command"
 done
 
+if test "$RANGER_LEVEL"; then
+	alias ranger="exit"
+	export PROMPT="%F{red}(RANGER)%f $PROMPT"
+fi
+
 # export EDITOR
 VISUAL=vim; export VISUAL
 EDITOR=vim; export EDITOR
