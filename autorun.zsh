@@ -5,21 +5,18 @@ SCRIPTS="$HOME/scripts"
 
 # No typing "sudo"
 while read -r i; do
-	alias "$i=sudo $i"
+	sudoargs+=("$i=sudo $i")
 done << EOF
-	dispatch-conf
-	emaint
-	emerge
-	eselect
-	layman
+	dnf
 	poweroff
-	quickpgk
 	reboot
 EOF
+alias "${sudoargs[@]}"
+unset sudoargs
 
 if test "$RANGER_LEVEL"; then
-#	alias ranger="exit"
-	export PROMPT="%F{red}(RANGER $RANGER_LEVEL)%f $PROMPT"
+	alias ranger="exit"
+	export PROMPT="%{$bg[red]$fg[black]%} RANGER %{$reset_color%} $PROMPT"
 fi
 
 # export EDITOR
@@ -37,18 +34,23 @@ done << EOF
 	$HOME/*.hup
 EOF
 rm -rf "${todel[@]}" > /dev/null
+unset todel
 
 # Load colorscheme (for vim config)
 $SCRIPTS/walper.sh -s
 
 # aliases
 while read -r i; do
-	alias "$i"
+	aliasargs+=("$i")
 done << EOF
 	c=$SCRIPTS/clipboard.sh
 	timestamp=$SCRIPTS/timestamp.sh
 	x=exit
 	ls=exa
+	tree=exa --tree
+	df=pydf
 	htop=htop -t
 	scp=scp -r
 EOF
+alias "${aliasargs[@]}"
+unset aliasargs

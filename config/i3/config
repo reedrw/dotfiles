@@ -228,6 +228,7 @@ workspace $workspace22 output DP1
 
 # Other Keybindings {{{
 bindsym Print        exec --no-startup-id flameshot gui
+bindsym $mod+l       exec --no-startup-id i3lock
 bindsym $mod+r       exec --no-startup-id ~/scripts/record
 bindsym $mod+End     exec --no-startup-id ~/scripts/calnotify.sh
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -236,11 +237,6 @@ bindsym $sup+space   exec --no-startup-id rofi -show run -lines 10 -width 40
 bindsym $mod+k       exec --no-startup-id ~/scripts/selectkill
 bindsym $mod+o       open
 bindsym $mod+Shift+c reload
-# }}}
-
-# Backlight Controls {{{
-bindsym Control+Break     exec --no-startup-id sudo /home/reed/scripts/backlight.sh up
-bindsym Control+BackSpace exec --no-startup-id sudo /home/reed/scripts/backlight.sh down
 # }}}
 
 # Pulse Audio Controls {{{
