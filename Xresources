@@ -9,12 +9,12 @@ Xft.lcdfilter: lcddefault
 ! URxvt
 URxvt.perl-ext-common: default,matcher
 URxvt.scrollBar: false
-URxvt.font: xft:scientifica:size=8, xft:Kochi Gothic:antialias=false
-URxvt.boldFont: xft:scientifica:size=8
-URxvt.italicFont: xft:scientifica:italic:size=8
+URxvt.font: xft:scientifica:pixelsize=8:size=8, xft:Kochi Gothic:antialias=false
+URxvt.boldFont: xft:scientifica:pixelsize=8:size=8:style=Bold
+URxvt.italicFont: xft:scientifica:pixelsize=8:size=8:style=Italic
 URxvt.cursorUnderline: true
 URxvt.internalBorder: 15
-URxvt.letterSpace: 1
+URxvt.letterSpace: 0
 
 ! rofi
 rofi.font: scientifica Regular 8

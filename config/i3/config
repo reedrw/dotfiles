@@ -1,8 +1,9 @@
 # vim:filetype=i3
 
 # Colors and Customization {{{
-exec --no-startup-id ~/scripts/16script/16script.sh $( cat ~/.cache/16script/lastuse )
+exec --no-startup-id ~/scripts/16script/16script.sh $(< ~/.cache/16script/lastuse)
 
+# Set colors from xrdb. Colors must be set in xrdb before i3 config is loaded.
 set_from_resource $base00 color0  #000000
 set_from_resource $base01 color18 #000000
 set_from_resource $base02 color19 #000000
@@ -30,7 +31,6 @@ new_window pixel 5
 new_float  pixel 5
 
 for_window [class="URxvt" instance="float"] floating enable
-for_window [instance="imgview"] floating enable
 
 font pango:scientifica 8
 # }}}
@@ -256,6 +256,7 @@ bindsym XF86AudioNext exec --no-startup-id mpc next
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
+# if there's no XF86Audio buttons, control+arrow is good
 bindsym Control+Up    exec --no-startup-id mpc clear && /home/reed/scripts/killm.sh ncmpcpp
 bindsym Control+Right exec --no-startup-id mpc next
 bindsym Control+Down  exec --no-startup-id mpc toggle
@@ -274,4 +275,5 @@ exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
 exec        --no-startup-id urxvtd
+exec        --no-startup-id flameshot
 # }}}

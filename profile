@@ -10,3 +10,7 @@ if type xdg-open > /dev/null 2>&1 ; then
 	export XDG_VIDEOS_DIR="${HOME}/videos"
 	export XDG_PUBLICSHARE_DIR="/non/existent"
 fi
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus

@@ -6,6 +6,11 @@ while read -r i; do
 	optargs+=("$i")
 done << EOF
 	HIST_FIND_NO_DUPS
+	HIST_IGNORE_ALL_DUPS
+	HIST_REDUCE_BLANKS
+	HIST_VERIFY
+	INC_APPEND_HISTORY
+	SHARE_HISTORY
 	appendhistory
 	autocd
 	correct
@@ -25,10 +30,15 @@ done << EOF
 	up-line-or-beginning-search
 EOF
 
-colors && {
-PROMPT="%(!.%{$fg[red]%}%n%{$reset_color%}.%{$fg[green]%}%n%{$reset_color%})@%m: %(!.%{$bg[red]$fg[black]%}.%{$bg[green]$fg[black]%}) %(!.%d.%~) %{$reset_color%} %(!.#.$) "
-RPROMPT="%(?..%{$bg[red]$fg[black]%} %? %{$reset_color%})%{$bg[black]$fg[white]%} %h %{$reset_color%}"
-}
+colors
+PROMPT="%(!.%B%{$fg[red]%}%n%{$reset_color%}@.%{$fg[green]%}%n%{$reset_color%}@)%m: %(!.%{$bg[red]$fg[black]%}.%{$bg[green]$fg[black]%}) %(!.%d.%~) %{$reset_color%} %(!.#.$) "
+RPROMPT="%(?..%{$bg[red]$fg[black]%} %? %{$reset_color%})%B%{$bg[black]$fg[white]%} %h %{$reset_color%}"
+
+#  Check if current shell is a ranger subshell
+if test "$RANGER_LEVEL"; then
+	alias ranger="exit"
+	export PROMPT="%{$bg[red]$fg[black]%} RANGER %{$reset_color%} $PROMPT"
+fi
 
 PATH=~/.local/bin:$PATH
 
@@ -71,10 +81,9 @@ bindkey "${terminfo[kend]}"  end-of-line
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
-#autoload -U compinit
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' special-dirs true
 zmodload zsh/complist
-compinit -i
+compinit

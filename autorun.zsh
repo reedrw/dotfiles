@@ -14,14 +14,10 @@ EOF
 alias "${sudoargs[@]}"
 unset sudoargs
 
-if test "$RANGER_LEVEL"; then
-	alias ranger="exit"
-	export PROMPT="%{$bg[red]$fg[black]%} RANGER %{$reset_color%} $PROMPT"
-fi
 
 # export EDITOR
-VISUAL=vim; export VISUAL
-EDITOR=vim; export EDITOR
+VISUAL=nvim; export VISUAL
+EDITOR=nvim; export EDITOR
 
 # Remove autocreated directories
 while read -r i; do
@@ -36,7 +32,7 @@ EOF
 rm -rf "${todel[@]}" > /dev/null
 unset todel
 
-# Load colorscheme (for vim config)
+# Load colorscheme into terminal (for vim config)
 $SCRIPTS/walper.sh -s
 
 # aliases
@@ -51,6 +47,8 @@ done << EOF
 	df=pydf
 	htop=htop -t
 	scp=scp -r
+	vim=nvim
+	vi=nvim
 EOF
 alias "${aliasargs[@]}"
 unset aliasargs
