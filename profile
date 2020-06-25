@@ -14,3 +14,4 @@ fi
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
+if [ -e /home/reed/.nix-profile/etc/profile.d/nix.sh ]; then . /home/reed/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

@@ -10,16 +10,21 @@ call plug#begin()
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
-Plug 'dylanaraps/wal.vim'
-Plug 'flazz/vim-colorschemes'
+"Plug 'dylanaraps/wal.vim'
+"Plug 'flazz/vim-colorschemes'
+"Plug 'francoiscabrol/ranger.vim'
 Plug 'godlygeek/tabular'
-Plug 'jceb/vim-orgmode'
+"Plug 'jceb/vim-orgmode'
+Plug 'lambdalisue/suda.vim'
 Plug 'pseewald/vim-anyfold'
+Plug 'sheerun/vim-polyglot'
+"Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-speeddating'
+"Plug 'tpope/vim-speeddating'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
+Plug 'AndrewRadev/bufferize.vim'
 
 call plug#end()
 
@@ -63,6 +68,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+let g:suda_smart_edit = 1
+
+augroup TerminalStuff
+	au!
+	autocmd TermOpen * setlocal nonumber norelativenumber foldcolumn=2
+augroup END
+
 let base16colorspace=256
 colorscheme base16-classic-dark
 syntax on
@@ -87,11 +99,9 @@ au filetype i3 set foldmethod=marker
 highlight Comment cterm=italic gui=italic
 highlight Folded  cterm=bold   gui=bold
 set list lcs=tab:\│\ 
-let g:livepreview_previewer = 'mupdf'
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufNewFile,BufRead *.tex :set spell
 autocmd BufNewFile,BufRead *.md :set spell
-command W w !sudo tee % > /dev/null
 cnoremap <Up> <C-p>
 cnoremap <Down> <C-n>
 map Q :q<CR>

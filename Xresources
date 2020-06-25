@@ -7,14 +7,15 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 ! URxvt
-URxvt.perl-ext-common: default,matcher
 URxvt.scrollBar: false
-URxvt.font: xft:scientifica:pixelsize=8:size=8, xft:Kochi Gothic:antialias=false
-URxvt.boldFont: xft:scientifica:pixelsize=8:size=8:style=Bold
-URxvt.italicFont: xft:scientifica:pixelsize=8:size=8:style=Italic
+URxvt.font: xft:scientifica:size=8, xft:Kochi Gothic:antialias=false
+URxvt.boldFont: xft:scientifica:size=8:style=Bold
+URxvt.italicFont: xft:scientifica:size=8:style=Italic
 URxvt.cursorUnderline: true
 URxvt.internalBorder: 15
 URxvt.letterSpace: 0
+URxvt.perl-ext-common: default,matcher,font-size
+URxvt.font-size.step: 2
 
 ! rofi
 rofi.font: scientifica Regular 8
@@ -28,5 +29,10 @@ URxvt.matcher.button: 1
 
 ! Use Control-Shift-V/C for X clipboard
 URxvt.iso14755: false
+URxvt.iso14755_52: false
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! Resizeable text
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease

@@ -1,7 +1,7 @@
 SCRIPTS="$HOME/scripts"
 
 # auto startx
-[[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && startx
+[[ -t 0 && $(tty) == /dev/tty1 && ! $DISPLAY ]] && ! [[ $USER == "root" ]] && startx
 
 # No typing "sudo"
 while read -r i; do
@@ -14,10 +14,11 @@ EOF
 alias "${sudoargs[@]}"
 unset sudoargs
 
+export VISUAL=nvim
+export EDITOR=nvim
 
-# export EDITOR
-VISUAL=nvim; export VISUAL
-EDITOR=nvim; export EDITOR
+export MANPAGER="nvim -c 'set ft=man' -"
+export CM_LAUNCHER=rofi
 
 # Remove autocreated directories
 while read -r i; do
@@ -28,6 +29,10 @@ done << EOF
 	$HOME/Downloads
 	$HOME/nohup.out
 	$HOME/*.hup
+	$HOME/.wget-hsts
+	$HOME/.lesshst
+	$HOME/.fehbg
+	$HOME/.lyrics
 EOF
 rm -rf "${todel[@]}" > /dev/null
 unset todel
@@ -39,16 +44,19 @@ $SCRIPTS/walper.sh -s
 while read -r i; do
 	aliasargs+=("$i")
 done << EOF
-	c=$SCRIPTS/clipboard.sh
-	timestamp=$SCRIPTS/timestamp.sh
 	x=exit
-	ls=exa
+	ls=exa -lh --git
 	tree=exa --tree
-	df=pydf
 	htop=htop -t
-	scp=scp -r
-	vim=nvim
-	vi=nvim
+	which=whence
+	cp=cp -v
+	ln=ln -v
+	mv=mv -v
+	rm=rm -v
 EOF
 alias "${aliasargs[@]}"
 unset aliasargs
+
+export GPG_TTY=$(tty)
+
+if [ -e /home/reed/.nix-profile/etc/profile.d/nix.sh ]; then . /home/reed/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

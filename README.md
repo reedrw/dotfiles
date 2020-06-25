@@ -1,5 +1,6 @@
 # dotfiles
 ---
-Please don't copy from these unless you know _exactly_ what you're copying.
+
+replaced by my [nix config files](https://github.com/reedrw/nix-config)
 
 ![screenshot](screenshot.png)

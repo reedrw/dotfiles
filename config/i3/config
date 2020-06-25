@@ -30,6 +30,7 @@ client.urgent           $base01 $base01 $base05 $base00
 new_window pixel 5
 new_float  pixel 5
 
+for_window [class="URxvt"] border none
 for_window [class="URxvt" instance="float"] floating enable
 
 font pango:scientifica 8
@@ -233,7 +234,7 @@ bindsym $mod+r       exec --no-startup-id ~/scripts/record
 bindsym $mod+End     exec --no-startup-id ~/scripts/calnotify.sh
 bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Exit?' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
-bindsym $sup+space   exec --no-startup-id rofi -show run -lines 10 -width 40
+bindsym $sup+space   exec --no-startup-id "rofi -show run -lines 10 -width 40"
 bindsym $mod+k       exec --no-startup-id ~/scripts/selectkill
 bindsym $mod+o       open
 bindsym $mod+Shift+c reload
@@ -273,7 +274,7 @@ exec        --no-startup-id unclutter
 exec        --no-startup-id nm-applet
 exec        --no-startup-id mousetrap -t 7
 exec        --no-startup-id dunst
-exec        --no-startup-id compton
+exec        --no-startup-id picom --corner-radius 5
 exec        --no-startup-id urxvtd
 exec        --no-startup-id flameshot
 # }}}

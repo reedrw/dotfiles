@@ -7,6 +7,7 @@ while read -r i; do
 done << EOF
 	HIST_FIND_NO_DUPS
 	HIST_IGNORE_ALL_DUPS
+	HIST_IGNORE_SPACE
 	HIST_REDUCE_BLANKS
 	HIST_VERIFY
 	INC_APPEND_HISTORY
@@ -32,7 +33,7 @@ EOF
 
 colors
 PROMPT="%(!.%B%{$fg[red]%}%n%{$reset_color%}@.%{$fg[green]%}%n%{$reset_color%}@)%m: %(!.%{$bg[red]$fg[black]%}.%{$bg[green]$fg[black]%}) %(!.%d.%~) %{$reset_color%} %(!.#.$) "
-RPROMPT="%(?..%{$bg[red]$fg[black]%} %? %{$reset_color%})%B%{$bg[black]$fg[white]%} %h %{$reset_color%}"
+RPROMPT="%(?..%{$bg[red]$fg[black]%} %? %{$reset_color%})%B %{$reset_color%}%h"
 
 #  Check if current shell is a ranger subshell
 if test "$RANGER_LEVEL"; then
@@ -41,9 +42,7 @@ if test "$RANGER_LEVEL"; then
 fi
 
 PATH=~/.local/bin:$PATH
-
-[[ -d ~/.local/bin ]] || mkdir -p ~/.local/bin
-[[ -d ~/bin        ]] && PATH=~/bin:$PATH
+#FPATH=~/.fpath:$FPATH
 
 while read -r i; do
 	aliasargs+=("$i")
@@ -63,10 +62,49 @@ command -v antibody > /dev/null || \
 test -f ~/.autorun.zsh && . ~/.autorun.zsh
 
 antibody bundle << EOF
-	zdharma/fast-syntax-highlighting
+	Aloxaf/fzf-tab
+	zsh-users/zsh-syntax-highlighting
+	docker/cli path:contrib/completion/zsh kind:fpath
 	robbyrussell/oh-my-zsh path:plugins/sudo
-	ael-code/zsh-colored-man-pages
 EOF
+
+compinit
+
+local extract="
+# trim input
+local in=\${\${\"\$(<{f})\"%\$'\0'*}#*\$'\0'}
+# get ctxt for current completion
+local -A ctxt=(\"\${(@ps:\2:)CTXT}\")
+# real path
+local realpath=\${ctxt[IPREFIX]}\${ctxt[hpre]}\$in
+realpath=\${(Qe)~realpath}
+"
+
+FZF_TAB_COMMAND=(
+	fzf
+	--ansi   # Enable ANSI color support, necessary for showing groups
+	--expect='$continuous_trigger' # For continuous completion
+	--color=dark
+	--nth=2,3 --delimiter='\x00'  # Don't search prefix
+	--layout=reverse --height='${FZF_TMUX_HEIGHT:=75%}'
+	--tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+	'--query=$query'   # $query will be expanded to query string at runtime.
+	'--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+)
+zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+
+#zstyle ':completion:*' file-sort access
+zstyle ':fzf-tab:*' insert-space true
+zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm,cmd -w -w"
+zstyle ':fzf-tab:complete:cd:*' extra-opts --preview=$extract'exa -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:vim:*' extra-opts --preview=$extract'[ -d $realpath ] && exa -1 --color=always $realpath || bat -p --theme=base16 --color=always $realpath'
+zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
+
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' special-dirs true
+zmodload zsh/complist
 
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
@@ -81,9 +119,3 @@ bindkey "${terminfo[kend]}"  end-of-line
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' menu select
-zstyle ':completion:*' special-dirs true
-zmodload zsh/complist
-compinit
